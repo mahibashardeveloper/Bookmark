@@ -24,9 +24,10 @@
             <div class="px-4">
                 <div class="card-content">
                     <div class="card-header border-bottom">
-                        <i class="bi bi-cloud-fill me-2"></i>
-                        All Bookmark
-
+                        <div class="me-3 h4">
+                            <i class="bi bi-cloud-fill me-2"></i>
+                            All Bookmark
+                        </div>
                         <span class="d-flex align-items-center ms-3" v-if="tableData.length > 0 && loading === false && selected.length > 0">
                             <a href="javascript:void(0)" class="select-icon" @click="deleteModal(1)">
                                 <i class="bi bi-trash2"></i>
@@ -69,22 +70,36 @@
 
                         <div v-if="tableData.length > 0 && loading === false">
                             <div class="row card-topic">
-                                <div class="col-12 col-sm-6 d-none d-sm-block">
+                                <div class="col-12 col-sm-4 d-none d-sm-block">
                                     <div class="d-flex align-items-center">
                                         <input type="checkbox" class="form-check-input me-3 d-none d-sm-block" :checked="tableData.length > 0 && tableData.length === selected.length" @change="toggleCheckAll($event)">
-                                        নাম
+                                        Name
                                     </div>
                                 </div>
-                                <div class="col-12 col-sm-6 d-none d-sm-block text-sm-end"></div>
+                                <div class="col-12 col-sm-4 d-none d-sm-block">
+                                    Url
+                                </div>
+                                <div class="col-12 col-sm-4 d-none d-sm-block">
+
+                                </div>
                             </div>
                             <div class="row card-list" v-for="(each) in tableData">
-                                <div class="col-12 col-sm-6"> <div class="marge-title py-3"> নাম </div>
+                                <div class="col-12 col-sm-4">
+                                    <div class="marge-title py-3">
+                                        Name
+                                    </div>
                                     <div class="d-flex align-items-center">
                                         <input type="checkbox" class="form-check-input me-3 d-none d-sm-block" :checked="CheckIfChecked(each.id)" @change="toggleCheck($event,each.id)">
-                                        {{each.bookmark_url}}
+                                        {{each.bookmark_name}}
                                     </div>
                                 </div>
-                                <div class="col-12 col-sm-6 text-sm-end mt-3 mt-sm-0">
+                                <div class="col-12 col-sm-4">
+                                    <div class="marge-title py-3">
+                                        Url
+                                    </div>
+                                    {{each.bookmark_url}}
+                                </div>
+                                <div class="col-12 col-sm-4 text-sm-end mt-3 mt-sm-0">
                                     <a href="javascript:void(0)" class="text-decoration-none text-secondary me-3" @click="manageModal(1, each.id)">
                                         <i class="bi bi-pencil-square"></i>
                                     </a>
@@ -96,9 +111,9 @@
                         </div>
 
                     </div>
-                    <div class="card-footer border-top">
+                    <div class="card-footer border-top" v-if="tableData.length > 0 && loading === false">
 
-                        <div class="d-flex justify-content-center" v-if="tableData.length > 0 && loading === false">
+                        <div class="d-flex justify-content-center">
                             <div class="pagination pagination-sm">
                                 <div class="page-item" @click="PrevPage">
                                     <a class="page-link" href="javascript:void(0)">
@@ -159,22 +174,35 @@
             <div class="modal-content rounded-0">
                 <form>
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">Create Bookmark</h1>
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">
+                            <span v-if="bookmarkParam.id === ''">
+                                Create
+                            </span>
+                            <span v-if="bookmarkParam.id !== ''">
+                                Edit
+                            </span>
+                            Bookmark
+                        </h1>
                         <button type="button" class="btn-close" @click="manageModal(2,'')"></button>
                     </div>
                     <div class="modal-body">
-                        <div class="form-group">
+                        <div class="mb-3">
+                            <label for="bookmark_name" class="form-label">Bookmark Name</label>
+                            <input type="text" name="bookmark_name" class="form-control border-secondary-subtle" v-model="bookmarkParam.bookmark_name" autocomplete="off">
+                            <div class="error-text" v-if="error != null && error.bookmark_url !== undefined" v-text="error.bookmark_url[0]"></div>
+                        </div>
+                        <div class="mb-3">
                             <label for="bookmark_url" class="form-label">Bookmark Url</label>
                             <input type="url" name="bookmark_url" class="form-control border-secondary-subtle" v-model="bookmarkParam.bookmark_url" autocomplete="off">
                             <div class="error-text" v-if="error != null && error.bookmark_url !== undefined" v-text="error.bookmark_url[0]"></div>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn-cancel" @click="manageModal(2,'')">
+                        <button type="button" class="btn btn-secondary px-4 py-2" @click="manageModal(2,'')">
                             Cancel
                         </button>
-                        <button type="button" class="btn-save" @click="manageBookmark">
-                            <span v-if="bookmarkLoading === false">
+                        <button type="button" class="btn btn-dark px-4 py-2" @click="manageBookmark">
+                            <span v-if="createLoading === false">
                                 <span v-if="bookmarkParam.id === ''">
                                     Save
                                 </span>
@@ -182,7 +210,7 @@
                                     Update
                                 </span>
                             </span>
-                            <span v-if="bookmarkLoading === true">
+                            <span v-if="createLoading === true">
                                 Loading...
                             </span>
                         </button>
@@ -205,8 +233,8 @@
                     </div>
                 </div>
                 <div class="modal-footer border-top-0 d-flex justify-content-around align-items-center">
-                    <button type="button" class="col-5 btn-cancel" @click="deleteModal(2,'')">Cancel</button>
-                    <button type="button" class="col-5 btn-delete" @click="deleteBookmark">
+                    <button type="button" class="col-5 btn btn-secondary px-4 py-2" @click="deleteModal(2,'')">Cancel</button>
+                    <button type="button" class="col-5 btn btn-danger px-4 py-2" @click="deleteBookmark">
                         <span v-if="deleteLoading === false">
                             Confirm
                         </span>
@@ -235,7 +263,8 @@ export default {
             deleteLoading: false,
             bookmark: [],
             bookmarkParam: {
-                bookmark_url: ''
+                bookmark_name: '',
+                bookmark_url: '',
             },
             deleteParam: {
                 ids: []
@@ -319,7 +348,7 @@ export default {
                 myModal.show();
             } else {
                 this.selected = [];
-                this.bookmarkParam = { id: '', name: '' };
+                this.bookmarkParam = { id: '', bookmark_name: '', bookmark_url: '' };
                 this.current_page = 1;
                 let myModalEl = document.getElementById('deleteModal');
                 let modal = bootstrap.Modal.getInstance(myModalEl)
@@ -329,7 +358,7 @@ export default {
 
         manageModal(type, data = null) {
             this.error = null;
-            this.bookmarkParam = { id: '', name: '' };
+            this.bookmarkParam = { id: '', bookmark_name: '', bookmark_url: '' };
             if (type === 1) {
                 this.getBookmark();
                 if (data !== null) {
@@ -338,6 +367,9 @@ export default {
                 const myModal = new bootstrap.Modal("#manageModal", {keyboard: false, backdrop: 'static'});
                 myModal.show();
             } else {
+                this.selected = [];
+                this.bookmarkParam = { id: '', bookmark_name: '', bookmark_url: '' };
+                this.current_page = 1;
                 const myModal = document.querySelector("#manageModal");
                 const modal = bootstrap.Modal.getInstance(myModal);
                 modal.hide();

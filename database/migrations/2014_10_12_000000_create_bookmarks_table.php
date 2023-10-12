@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('bookmarks', function (Blueprint $table) {
             $table->id();
             $table->string('bookmark_name');
-            $table->string('bookmark_link');
+            $table->string('bookmark_url');
             $table->dateTime('created_at')->useCurrent();
             $table->timestamp('updated_at')->nullable()->useCurrentOnUpdate();
         });

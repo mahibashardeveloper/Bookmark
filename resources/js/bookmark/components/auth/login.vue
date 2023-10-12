@@ -12,6 +12,7 @@
                                 <div class="h1 mb-3 fw-bold">Bookmark</div>
                                 <div class="h3 fw-bold mb-3">Welcome to your account</div>
                             </div>
+                            <div class="alert alert-danger mb-3 text-center" v-if="error !== null && error.error !== undefined" v-text="error.error"></div>
                             <div class="form-group col-md-12">
                                 <label for="email" class="form-label">Email</label>
                                 <input id="email" type="email" name="email" class="form-control" autocomplete="off" v-model="loginParam.email">
@@ -77,7 +78,7 @@
                     if(res.status === 200){
                         window.location.reload();
                     }else{
-                        this.ClearErrorHandler();
+                        this.error = res.errors;
                     }
                 });
             }

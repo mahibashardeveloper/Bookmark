@@ -13,11 +13,6 @@
                                 <div class="h3 fw-bold mb-3">Create a new account</div>
                             </div>
                             <div class="form-group col-md-12">
-                                <label for="company_name" class="form-label">Company Name</label>
-                                <input id="company_name" type="text" name="company_name" class="form-control" autocomplete="off" v-model="registerParam.company_name">
-                                <div class="error-text" v-if="error != null && error.company_name !== undefined" v-text="error.company_name[0]"></div>
-                            </div>
-                            <div class="form-group col-md-12">
                                 <label for="full_name" class="form-label">Full Name</label>
                                 <input id="full_name" type="text" name="full_name" class="form-control" autocomplete="off" v-model="registerParam.full_name">
                                 <div class="error-text" v-if="error != null && error.full_name !== undefined" v-text="error.full_name[0]"></div>
@@ -92,7 +87,7 @@
                     if(res.status === 200){
                         window.location.reload();
                     }else{
-                        this.ClearErrorHandler();
+                        this.error = res.errors;
                     }
                 });
             }

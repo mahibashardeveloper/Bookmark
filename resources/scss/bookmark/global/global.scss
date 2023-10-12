@@ -2,7 +2,9 @@
     .modal-dialog{
         .modal-content{
             .modal-header{
-                .modal-title{}
+                .modal-title{
+                    font-weight: bold;
+                }
                 .btn-close{}
             }
             .modal-body{

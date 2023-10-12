@@ -15,6 +15,7 @@ class BookmarkService extends BaseController
             $validator = Validator::make(
                 $request->all(),
                 [
+                    'bookmark_name' => 'required',
                     'bookmark_url' => 'required',
                 ]
             );
@@ -95,7 +96,7 @@ class BookmarkService extends BaseController
                 return ['status' => 500, 'errors' => 'data not found'];
             }
             $bookmark->bookmark_name = $request->bookmark_name;
-            $bookmark->bookmark_link = $request->bookmark_link;
+            $bookmark->bookmark_url = $request->bookmark_url;
             $bookmark->save();
             return ['status' => 200, 'msg' => 'data has been updated successfully.'];
         } catch (\Exception $e) {
