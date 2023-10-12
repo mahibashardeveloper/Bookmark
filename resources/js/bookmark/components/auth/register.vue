@@ -15,22 +15,27 @@
                             <div class="form-group col-md-12">
                                 <label for="company_name" class="form-label">Company Name</label>
                                 <input id="company_name" type="text" name="company_name" class="form-control" autocomplete="off" v-model="registerParam.company_name">
+                                <div class="error-text" v-if="error != null && error.company_name !== undefined" v-text="error.company_name[0]"></div>
                             </div>
                             <div class="form-group col-md-12">
                                 <label for="full_name" class="form-label">Full Name</label>
                                 <input id="full_name" type="text" name="full_name" class="form-control" autocomplete="off" v-model="registerParam.full_name">
+                                <div class="error-text" v-if="error != null && error.full_name !== undefined" v-text="error.full_name[0]"></div>
                             </div>
                             <div class="form-group col-md-12">
                                 <label for="email" class="form-label">Email</label>
                                 <input id="email" type="email" name="email" class="form-control" autocomplete="off" v-model="registerParam.email">
+                                <div class="error-text" v-if="error != null && error.email !== undefined" v-text="error.email[0]"></div>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="password" class="form-label">Password</label>
                                 <input id="password" type="password" name="password" class="form-control" autocomplete="off" v-model="registerParam.password">
+                                <div class="error-text" v-if="error != null && error.password !== undefined" v-text="error.password[0]"></div>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="confirm_password" class="form-label">Confirm Password</label>
                                 <input id="confirm_password" type="password" name="confirm_password" class="form-control" autocomplete="off" v-model="registerParam.password_confirmation">
+                                <div class="error-text" v-if="error != null && error.password_confirmation !== undefined" v-text="error.password_confirmation[0]"></div>
                             </div>
                             <div class="form-group">
                                 <button type="submit" class="btn btn-dark btn-size-theme px-5" v-if="createLoading === false">Registration</button>
@@ -69,7 +74,8 @@
                     email: '',
                     password: '',
                     password_confirmation: '',
-                }
+                },
+                error: null,
 
             }
 

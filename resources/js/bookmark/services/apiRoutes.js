@@ -6,7 +6,7 @@ const apiRoutes = {
 
     register: apiVersion + '/auth/register',
     login: apiVersion + '/auth/login',
-    forgot: apiVersion + '/auth/forgot',
+    forget: apiVersion + '/auth/forget',
     reset: apiVersion + '/auth/reset',
 
     // Profile

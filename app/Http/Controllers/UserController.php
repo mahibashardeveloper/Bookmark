@@ -9,7 +9,7 @@ class UserController extends BaseController
 {
 
     public function index(){
-        return view('app.admin');
+        return view('app.index');
     }
 
     public function register(Request $request){

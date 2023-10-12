@@ -15,10 +15,12 @@
                             <div class="form-group col-md-12">
                                 <label for="email" class="form-label">Email</label>
                                 <input id="email" type="email" name="email" class="form-control" autocomplete="off" v-model="loginParam.email">
+                                <div class="error-text" v-if="error != null && error.email !== undefined" v-text="error.email[0]"></div>
                             </div>
                             <div class="form-group col-md-12">
                                 <label for="password" class="form-label">Password</label>
                                 <input id="password" type="password" name="password" class="form-control" autocomplete="off" v-model="loginParam.password">
+                                <div class="error-text" v-if="error != null && error.password !== undefined" v-text="error.password[0]"></div>
                             </div>
                             <div class="form-group">
                                 <div class="row align-items-center">
@@ -59,7 +61,8 @@
                 loginParam: {
                     email: '',
                     password: '',
-                }
+                },
+                error: null,
             }
         },
 

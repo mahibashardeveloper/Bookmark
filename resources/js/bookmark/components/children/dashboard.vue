@@ -11,7 +11,7 @@
                 </div>
             </div>
             <div class="col-md-3 text-end">
-                <a href="javascript:void(0)" class="btn btn-dark px-5 py-2">
+                <a href="javascript:void(0)" class="btn btn-dark px-4 py-2">
                     <i class="bi bi-star-fill me-2"></i> Add
                 </a>
             </div>

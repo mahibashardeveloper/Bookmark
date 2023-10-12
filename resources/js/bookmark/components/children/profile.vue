@@ -1,7 +1,7 @@
 <template>
     <div class="admin-full-content">
 
-        <div class="profile-card col-md-5 border">
+        <div class="profile-card col-md-5 border bg-secondary-subtle shadow">
             <div class="profile-card-header">
                 <a href="javascript:void(0)" class="edit-profile" @click="openEditProfileModal">
                     <i class="bi bi-pencil-square"></i>
