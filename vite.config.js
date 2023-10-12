@@ -6,8 +6,8 @@ export default defineConfig({
         vue(),
         laravel({
             input: [
-                'resources/scss/admin/style.scss',
-                'resources/js/admin/app.js'
+                'resources/scss/bookmark/style.scss',
+                'resources/js/bookmark/app.js'
             ],
             refresh: true,
         }),

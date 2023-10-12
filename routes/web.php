@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AdminController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,7 +14,7 @@ use App\Http\Controllers\AdminController;
 |
 */
 
-Route::middleware('AdminLoginCheck')->get('/admin/auth/{any}', [AdminController::class, 'index'])->where('any','.*')->name('lvs.admin.auth');
-Route::middleware('AdminLoginCheck')->get('/admin/', [AdminController::class, 'index'])->where('any','.*')->name('lvs.admin');
-Route::middleware('AdminLoginCheck')->get('/admin/{any}', [AdminController::class, 'index'])->where('any','.*')->name('lvs.admin.any');
-Route::middleware('AdminLoginCheck')->get('/admin', function (){ return redirect()->route('lvs.admin.any','dashboard'); });
+Route::middleware('UserLoginCheck')->get('user/auth/{any}', [UserController::class, 'index'])->where('any','.*')->name('lvs.user.auth');
+Route::middleware('UserLoginCheck')->get('user/', [UserController::class, 'index'])->where('any','.*')->name('lvs.user');
+Route::middleware('UserLoginCheck')->get('user/{any}', [UserController::class, 'index'])->where('any','.*')->name('lvs.user.any');
+Route::middleware('UserLoginCheck')->get('user', function (){ return redirect()->route('lvs.user.any','dashboard'); });

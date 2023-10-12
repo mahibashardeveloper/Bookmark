@@ -1,0 +1,32 @@
+.modal{
+    .modal-dialog{
+        .modal-content{
+            .modal-header{
+                .modal-title{}
+                .btn-close{}
+            }
+            .modal-body{
+                .form-label{
+                    font-weight: bold;
+                }
+                .form-control{
+                    box-shadow: 0 0 0 0;
+                    border: 1px solid #eeeeee;
+                }
+                .modal-avatar{
+                    width: 150px;
+                    height: 150px;
+                    border-radius: 50%;
+                    background-color: #eeeeee;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    &.cursor-pointer{
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+}

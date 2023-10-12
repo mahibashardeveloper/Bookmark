@@ -1,9 +1,9 @@
 <?php
 
 namespace App\Http;
-use App\Http\Middleware\AdminAuth;
-use App\Http\Middleware\AdminAuthReq;
-use App\Http\Middleware\AdminLoginCheck;
+use App\Http\Middleware\UserAuth;
+use App\Http\Middleware\UserAuthReq;
+use App\Http\Middleware\UserLoginCheck;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
@@ -68,8 +68,8 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
 
-        'AdminAuth' => \App\Http\Middleware\AdminAuth::class,
-        'AdminAuthReq' => \App\Http\Middleware\AdminAuthReq::class,
-        'AdminLoginCheck' => \App\Http\Middleware\AdminLoginCheck::class,
+        'UserAuth' => \App\Http\Middleware\UserAuth::class,
+        'UserAuthReq' => \App\Http\Middleware\UserAuthReq::class,
+        'UserLoginCheck' => \App\Http\Middleware\UserLoginCheck::class,
     ];
 }

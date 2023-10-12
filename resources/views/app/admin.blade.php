@@ -14,5 +14,5 @@
     </div>
 
 </body>
-@vite('resources/js/admin/app.js')
+@vite('resources/js/bookmark/app.js')
 </html>
