@@ -18,12 +18,6 @@
                     </div>
                 </div>
                 <div class="mb-3 fw-bold">
-                    Company Name
-                </div>
-                <div class="mb-3">
-                    {{profile_data.company_name}}
-                </div>
-                <div class="mb-3 fw-bold">
                     Full Name
                 </div>
                 <div class="mb-3">
@@ -65,13 +59,6 @@
                                 <img class="img-fluid modal-avatar" v-if="editParam.avatar !== null" :src="editParam.avatarFilePath" alt="profile">
                             </label>
                         </div>
-                    </div>
-                    <div class="mb-3">
-                        <label for="company_name" class="form-label">
-                            Company Name
-                        </label>
-                        <input type="text" id="company_name" name="company_name" class="form-control" v-model="editParam.company_name">
-                        <div class="error-text" v-if="error != null && error.company_name !== undefined" v-text="error.company_name[0]"></div>
                     </div>
                     <div class="mb-3">
                         <label for="first_name" class="form-label">
@@ -156,8 +143,15 @@ export default {
             updateProfileLoading: false,
             error: null,
             edit: false,
-            editParam: { company_name: '', full_name: '', email: '', avatar: '' },
-            passwordParam: { password: '', password_confirmation: '' },
+            editParam: {
+                full_name: '',
+                email: '',
+                avatar: ''
+            },
+            passwordParam: {
+                password: '',
+                password_confirmation: ''
+            },
         }
     },
 

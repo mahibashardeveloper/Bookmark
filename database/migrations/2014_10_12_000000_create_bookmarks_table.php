@@ -11,15 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('bookmarks', function (Blueprint $table) {
             $table->id();
-            $table->string('full_name');
-            $table->string('email');
-            $table->string('password');
-            $table->string('avatar')->nullable();
-            $table->string('email_verified_at')->nullable();
-            $table->string('verified_token')->nullable();
-            $table->bigInteger('reset_code')->nullable();
+            $table->string('bookmark_name');
+            $table->string('bookmark_link');
             $table->dateTime('created_at')->useCurrent();
             $table->timestamp('updated_at')->nullable()->useCurrentOnUpdate();
         });
@@ -30,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('bookmarks');
     }
 };

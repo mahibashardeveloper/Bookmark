@@ -16,6 +16,14 @@ const apiRoutes = {
     profile_password: apiVersion + '/profile/password',
     profile_logout: apiVersion + '/profile/logout',
 
+    //bookmark
+
+    bookmarkCreate: apiVersion + '/bookmark/create',
+    bookmarkList: apiVersion + '/bookmark/list',
+    bookmarkSingle: apiVersion + '/bookmark/single',
+    bookmarkUpdate: apiVersion + '/bookmark/update',
+    bookmarkDelete: apiVersion + '/bookmark/delete',
+
     // Media
 
     media: apiVersion + '/media/upload',

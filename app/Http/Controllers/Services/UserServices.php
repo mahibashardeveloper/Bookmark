@@ -18,7 +18,6 @@ class UserServices extends BaseController
             $validator = Validator::make(
                 $request->all(),
                 [
-                    'company_name' => 'required',
                     'full_name' => 'required',
                     'email' => 'required|unique:users,email',
                     'password' => 'required|min:6|confirmed',
@@ -28,7 +27,6 @@ class UserServices extends BaseController
                 return ['status' => 500, 'errors' => $validator->errors()];
             }
             $admin = new User();
-            $admin->company_name = $request->company_name;
             $admin->full_name = $request->full_name;
             $admin->email = $request->email;
             $admin->password = bcrypt($request->password);
@@ -136,7 +134,6 @@ class UserServices extends BaseController
             $validator = Validator::make(
                 $request->all(),
                 [
-                    'company_name' => 'required',
                     'full_name' => 'required',
                     'email' => 'required|email',
                 ]
@@ -145,7 +142,6 @@ class UserServices extends BaseController
                 return ['status' => 500, 'errors' => $validator->errors()];
             }
             $user = User::where('id', Auth::guard('users')->id())->first();
-            $user->company_name = $request->company_name;
             $user->full_name = $request->full_name;
             $user->email = $request->email;
             $user->avatar = $request->avatar ?? null;

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\MediaController;
+use App\Http\Controllers\BookmarkController;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,4 +50,16 @@ Route::group(
 
 Route::prefix('media')->group( function () {
     Route::post('/upload', [MediaController::class, 'upload'])->name('User.Media.Upload');
+});
+
+/* -------------------------
+    Bookmark Controller
+--------------------------- */
+
+Route::prefix('bookmark')->group( function () {
+    Route::post('/list', [BookmarkController::class, 'list'])->name('User.Bookmark.List');
+    Route::post('/create', [BookmarkController::class, 'create'])->name('User.Bookmark.Create');
+    Route::post('/single', [BookmarkController::class, 'single'])->name('User.Bookmark.Single');
+    Route::post('/update', [BookmarkController::class, 'update'])->name('User.Bookmark.Update');
+    Route::post('/delete', [BookmarkController::class, 'delete'])->name('User.Bookmark.Delete');
 });

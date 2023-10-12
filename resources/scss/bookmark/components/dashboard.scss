@@ -1,0 +1,66 @@
+.dashboard{
+
+    .dropdown{
+
+        .dropdown-menu{
+            padding: 10px;
+
+            .dropdown-item{
+                padding: 5px 10px;
+
+                &:hover, &:active{
+                    background-color: #eeeeee;
+                    color: $black;
+                }
+
+            }
+
+        }
+
+    }
+
+    .card-content{
+        width: 100%;
+
+        .card-header{
+            width: 100%;
+            padding: 15px;
+        }
+
+        .card-body{
+            width: 100%;
+            height: calc(100vh - 250px);
+
+            @media screen and (max-width: 600px) {
+                height: calc(100vh - 320px);
+            }
+
+        }
+
+        .card-footer{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-top: 10px;
+
+            .pagination{
+                .page-item{
+                    .page-link{
+                        width: 35px;
+                        height: 35px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        font-weight: bold;
+                        margin: 0 2px;
+                        border-radius: 10px;
+                        color: $black;
+                    }
+                }
+            }
+
+        }
+
+    }
+
+}
