@@ -1,0 +1,34 @@
+.navbar{
+    padding: 20px;
+    .navbar-brand{
+
+    }
+    .navbar-toggler{
+        box-shadow: 0 0 0 0;
+        .navbar-toggler-icon{
+        }
+    }
+    .collapse{
+        .navbar-nav{
+            .nav-item{
+                padding: 5px 10px;
+
+                @media screen and (max-width: 991px) {
+                    padding: 0;
+                }
+
+                .nav-link{
+                    padding: 10px 20px;
+                    transition: 0.3s all ease-in-out;
+                    color: $black;
+
+                    &:hover{
+                        transition: 0.3s all ease-in-out;
+                        background-color: #eeeeee;
+                    }
+
+                }
+            }
+        }
+    }
+}

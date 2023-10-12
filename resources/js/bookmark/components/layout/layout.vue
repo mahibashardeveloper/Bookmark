@@ -12,8 +12,8 @@
             </div>
             <div class="admin-sidebar-body">
                 <router-link :to="{name: 'profile'}" class="admin-sidebar-body-link" @click="remove">
-                    <span class="text-capitalize">
-                        {{profile_data.full_name}}
+                    <span class="text-capitalize d-flex align-items-center">
+                        <span class="me-2">Profile</span> <span class="badge bg-dark">{{profile_data.full_name}}</span>
                     </span>
                 </router-link>
                 <router-link :to="{name: 'dashboard'}" class="admin-sidebar-body-link" @click="remove">
