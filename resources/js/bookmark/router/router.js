@@ -16,7 +16,7 @@ const routes = [
     {path: ROOT_URL + '/auth/forget', name: 'forget', component: forget, meta: {title: 'forget'}},
     {path: ROOT_URL, name: 'layout', component: layout,
         children: [
-            {path: ROOT_URL + '/dashboard', name: 'dashboard', component: dashboard, meta: {title: 'dashboard'}},
+            {path: ROOT_URL + '/view', name: 'dashboard', component: dashboard, meta: {title: 'dashboard'}},
             {path: ROOT_URL + '/profile', name: 'profile', component: profile, meta: {title: 'profile'}},
         ],
     },

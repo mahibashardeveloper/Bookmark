@@ -12,7 +12,7 @@
             </div>
             <div class="admin-sidebar-body">
                 <router-link :to="{name: 'dashboard'}" class="admin-sidebar-body-link" @click="remove">
-                    Recent Added
+                    view
                 </router-link>
             </div>
         </div>
