@@ -11,29 +11,27 @@
                 </a>
             </div>
             <div class="admin-sidebar-body">
+                <router-link :to="{name: 'profile'}" class="admin-sidebar-body-link" @click="remove">
+                    {{profile_data.full_name}}
+                </router-link>
                 <router-link :to="{name: 'dashboard'}" class="admin-sidebar-body-link" @click="remove">
                     view
                 </router-link>
             </div>
+            <a href="javascript:void(0)" class="admin-sidebar-footer" @click="logout">
+                <span v-if="logoutLoading === false">
+                    Logout
+                </span>
+                <span v-if="logoutLoading === true">
+                    Loading...
+                </span>
+            </a>
         </div>
         <div class="admin-content">
             <div class="admin-content-header">
                 <a href="javascript:void(0)" class="admin-content-header-controller" @click="adminSideBarController">
                     <i class="bi bi-justify-left"></i>
                 </a>
-                <div class="d-flex align-items-center justify-content-end">
-                    <router-link :to="{name: 'profile'}" class="admin-header-link" @click="remove">
-                        {{profile_data.full_name}}
-                    </router-link>
-                    <a href="javascript:void(0)" class="admin-header-link" @click="logout">
-                        <span v-if="logoutLoading === false">
-                            Logout
-                        </span>
-                        <span v-if="logoutLoading === true">
-                            Loading...
-                        </span>
-                    </a>
-                </div>
             </div>
             <div class="admin-content-body">
                 <router-view/>

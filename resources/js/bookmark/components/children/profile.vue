@@ -1,5 +1,5 @@
 <template>
-    <div class="admin-full-content">
+    <div class="d-flex justify-content-center align-items-center profile">
 
         <div class="profile-card col-md-5 border bg-secondary-subtle shadow">
             <div class="profile-card-header">

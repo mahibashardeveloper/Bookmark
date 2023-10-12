@@ -1,41 +1,46 @@
-.profile-card{
-    border-radius: 10px;
-    padding: 20px;
+.profile{
+    height: calc(100vh - 70px);
 
-    .profile-card-header{
-        padding-bottom: 20px;
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
+    .profile-card{
+        border-radius: 10px;
+        padding: 20px;
 
-        .edit-profile{
-            text-decoration: none;
-            color: $white;
+        .profile-card-header{
+            padding-bottom: 20px;
             display: flex;
+            justify-content: flex-start;
             align-items: center;
-            justify-content: center;
-            background-color: $black;
-            font-size: 15px;
-            border-radius: 6px;
-            transition: 0.3s all ease-in-out;
-            width: 45px;
-            height: 40px;
 
-            &:hover{
-                background-color: #1a202c;
+            .edit-profile{
+                text-decoration: none;
+                color: $white;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: $black;
+                font-size: 15px;
+                border-radius: 6px;
+                transition: 0.3s all ease-in-out;
+                width: 45px;
+                height: 40px;
+
+                &:hover{
+                    background-color: #1a202c;
+                }
+
             }
 
         }
 
-    }
+        .profile-card-body{
 
-    .profile-card-body{
+            .profile-avatar{
+                width: 250px;
+                height: 250px;
+                object-fit: cover;
+                border-radius: 50%;
 
-        .profile-avatar{
-            width: 250px;
-            height: 250px;
-            object-fit: cover;
-            border-radius: 50%;
+            }
 
         }
 
