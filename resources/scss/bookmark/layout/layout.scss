@@ -5,6 +5,7 @@
         width: 239px;
         height: 100vh;
         background-color: #323B43;
+        padding: 10px;
 
         @media screen and (max-width: 991px) {
             position: absolute;
@@ -27,6 +28,7 @@
             padding: 10px 20px;
             width: 100%;
             height: 70px;
+            border-bottom: 1px solid $white;
 
             @media screen and (max-width: 991px) {
                 justify-content: space-between;
@@ -61,7 +63,7 @@
         }
 
         .admin-sidebar-body{
-            height: calc(100vh - 70px);
+            height: calc(100vh - 140px);
 
             .admin-sidebar-body-link{
                 text-decoration: none;
@@ -82,6 +84,17 @@
 
             }
 
+        }
+
+        .admin-sidebar-footer{
+            height: 70px;
+            text-decoration: none;
+            color: $white;
+            padding: 0 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-top: 1px solid $white;
         }
 
     }

@@ -12,10 +12,12 @@
             </div>
             <div class="admin-sidebar-body">
                 <router-link :to="{name: 'profile'}" class="admin-sidebar-body-link" @click="remove">
-                    {{profile_data.full_name}}
+                    <span class="text-capitalize">
+                        {{profile_data.full_name}}
+                    </span>
                 </router-link>
                 <router-link :to="{name: 'dashboard'}" class="admin-sidebar-body-link" @click="remove">
-                    view
+                    Recent Added
                 </router-link>
             </div>
             <a href="javascript:void(0)" class="admin-sidebar-footer" @click="logout">

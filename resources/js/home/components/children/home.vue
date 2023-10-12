@@ -1,25 +1,30 @@
 <template>
-    this is home content
+
+    
+
 </template>
 
 <script>
 
-export default {
+    import apiRoutes from "../../services/apiRoutes.js";
+    import apiService from "../../services/apiServices.js";
 
-    data() {
-        return {
+    export default {
+
+        data() {
+            return {
+
+            }
+        },
+
+        mounted() {
+
+        },
+
+        methods: {
 
         }
-    },
-
-    mounted() {
-
-    },
-
-    methods: {
 
     }
-
-}
 
 </script>
