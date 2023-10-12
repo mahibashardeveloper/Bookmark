@@ -6,7 +6,7 @@
             <div class="d-flex flex-wrap justify-content-between px-4">
                 <div class="col-12 col-md-9 col-lg-6 mb-3">
                     <div class="position-relative">
-                        <input type="text" placeholder="Search Here" class="form-control py-2 ps-5 shadow-none border-secondary-subtle" v-model="formData.q" @keyup="searchData">
+                        <input type="text" placeholder="Search Here" class="form-control py-2 ps-5 shadow-none border-secondary-subtle" v-model="formData.q" @keyup="SearchData">
                         <div class="position-absolute translate-middle-y top-50 start-0 ps-3">
                             <i class="bi bi-search"></i>
                         </div>

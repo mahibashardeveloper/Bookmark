@@ -44,7 +44,7 @@ class BookmarkService extends BaseController
             if (isset($keyword) && !empty($keyword)) {
                 $results->where(function ($q) use ($keyword) {
                     $q->where('bookmark_name', 'LIKE', '%' . $keyword . '%');
-                    $q->orWhere('bookmark_url', 'LIKE', '%' . $keyword . '%');
+                    $q->orwhere('bookmark_url', 'LIKE', '%' . $keyword . '%');
                 });
             }
             $paginatedData = $results->paginate($limit);

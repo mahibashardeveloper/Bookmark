@@ -49,6 +49,8 @@
         .card-body{
             width: 100%;
             height: calc(100vh - 250px);
+            overflow-x: hidden;
+            overflow-y: scroll;
 
             @media screen and (max-width: 600px) {
                 height: calc(100vh - 320px);
@@ -71,8 +73,8 @@
             .card-list{
                 padding: 15px;
 
-                &:hover{
-                    background-color: #eeeeee;
+                &:nth-child(even){
+                    background-color: #ffffff;
                 }
 
             }

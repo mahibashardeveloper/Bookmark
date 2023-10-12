@@ -2,6 +2,16 @@
     font-family: 'Dosis', sans-serif;
 }
 
+::-webkit-scrollbar {
+    background-color: transparent;
+    width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #eeeeee;
+    height: 20px !important;
+}
+
 @import "variable/variable";
 
 @import "auth/auth";
