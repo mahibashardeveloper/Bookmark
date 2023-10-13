@@ -4,7 +4,7 @@
         <div class="container">
             <router-link class="navbar-brand" :to="{name: 'home'}">
                 <img :src="'/images/logo.png'" class="img-fluid me-3" alt="logo">
-                Bookmark Store
+                Bookmark
             </router-link>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -17,22 +17,17 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="javascript:void(0)">
+                        <a class="nav-link" href="#about">
                             About
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="javascript:void(0)">
+                        <a class="nav-link" href="#pricing">
                             Pricing
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="javascript:void(0)">
-                            Blog
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a  href="/user/auth/login" class="nav-link" >
+                        <a  href="/user/auth/login" class="nav-link">
                             Login
                         </a>
                     </li>

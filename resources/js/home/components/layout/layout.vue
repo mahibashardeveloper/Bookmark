@@ -11,11 +11,12 @@
 <script>
 
     import Header from "./include/header.vue";
+    import Footer from "./include/Footer.vue";
 
     export default {
 
         components:{
-            Header
+            Header,Footer
         },
 
         data() {
