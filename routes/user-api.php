@@ -41,6 +41,7 @@ Route::group(
         Route::post('/update', [UserController::class, 'profile_update'])->name('User.Profile.update');
         Route::post('/password', [UserController::class, 'profile_password'])->name('User.Profile.Password');
         Route::get('/logout', [UserController::class, 'profile_logout'])->name('User.Profile.Logout');
+        Route::post('/list', [UserController::class, 'userLogList'])->name('User.UserLog.List');
     }
 );
 

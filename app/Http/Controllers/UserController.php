@@ -52,4 +52,9 @@ class UserController extends BaseController
         return response()->json($rv, 200);
     }
 
+    public function userLogList(Request $request){
+        $rv = UserServices::userLogList($request);
+        return response()->json($rv, 200);
+    }
+
 }

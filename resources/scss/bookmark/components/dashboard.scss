@@ -1,0 +1,106 @@
+.dashboard{
+
+    .card-content{
+        width: 100%;
+
+        .card-header{
+            width: 100%;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+
+            .select-icon{
+                padding: 5px 10px;
+                display: inline-block;
+                text-decoration: none;
+                color: $black;
+                transition: 0.3s all ease-in-out;
+                border-radius: 6px;
+
+                &:hover{
+                    transition: 0.3s all ease-in-out;
+                    background-color: #888888;
+                    color: $white;
+                }
+
+            }
+
+        }
+
+        .card-body{
+            width: 100%;
+            height: calc(100vh - 320px);
+            overflow-x: hidden;
+            overflow-y: scroll;
+
+            @media screen and (max-width: 600px) {
+                height: calc(100vh - 320px);
+            }
+
+            .page-no-data-found{
+                width: 100%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+            }
+
+            .card-topic{
+                padding: 15px;
+                font-weight: bold;
+            }
+
+            .card-list{
+                padding: 15px;
+
+                &:nth-child(even){
+                    background-color: #ffffff;
+                }
+
+            }
+
+            .marge-title{
+                display: none;
+
+                @media screen and (max-width: 575px) {
+                    display: block;
+                }
+
+            }
+
+        }
+
+        .card-footer{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-top: 10px;
+
+            .pagination{
+                .page-item{
+
+                    &.active .page-link{
+                        background-color: #ffffff;
+                        border: 1px solid #ffffff;
+                    }
+
+                    .page-link{
+                        width: 35px;
+                        height: 35px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        font-weight: bold;
+                        margin: 0 2px;
+                        border-radius: 10px;
+                        color: $black;
+                    }
+                }
+            }
+
+        }
+
+    }
+
+}

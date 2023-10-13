@@ -15,6 +15,7 @@ const apiRoutes = {
     profile_update: apiVersion + '/profile/update',
     profile_password: apiVersion + '/profile/password',
     profile_logout: apiVersion + '/profile/logout',
+    profile_userLog: apiVersion + '/profile/list',
 
     //bookmark
 

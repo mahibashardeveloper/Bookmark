@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Services;
 
+use App\Models\Time;
+use App\Models\UserLogs;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -53,7 +55,14 @@ class UserServices extends BaseController
             }
             $credential = ['email' => $request->email, 'password' => $request->password];
             if(Auth::guard('users')->attempt($credential, $request->remember)){
-                return ['status' => 200, 'data' => Auth::guard('users')->user()];
+                $user = Auth::guard('users')->user();
+
+                // set user login log
+                $log = new UserLogs();
+                $log->user_id = $user->id;
+                $log->save();
+
+                return ['status' => 200, 'data' => $user];
             } else {
                 return ['status' => 500, 'errors' => ['error' => 'Invalid Credentials! Please Try Again']];
             }
@@ -179,6 +188,19 @@ class UserServices extends BaseController
             Auth::guard('users')->logout();
             return ['status' => 200, 'msg' => 'logout successfully'];
         } catch(\Exception $e) {
+            return ['status' => 500, 'errors' => $e->getMessage(), 'line' => $e->getLine()];
+        }
+    }
+
+    public static function userLogList($request)
+    {
+        try {
+            $user_id = Auth::guard('users')->id();
+            $limit = $request->limit ?? 10000;
+            $results = UserLogs::where('user_id', $user_id)->orderBy('id', 'desc');
+            $paginatedData = $results->paginate($limit);
+            return ['status' => 200, 'data' => $paginatedData];
+        } catch (\Exception $e) {
             return ['status' => 500, 'errors' => $e->getMessage(), 'line' => $e->getLine()];
         }
     }
