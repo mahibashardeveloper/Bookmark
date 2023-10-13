@@ -20,7 +20,7 @@ class UserLoginCheck
         $path = \Illuminate\Support\Facades\Request::route()->getName();
         if (Auth::guard('users')->check()) {
             if($path == 'lvs.user.auth') {
-                return redirect()->route('lvs.user.any', 'view');
+                return redirect()->route('lvs.user.any', 'dashboard');
             } else {
                 return $next($request);
             }

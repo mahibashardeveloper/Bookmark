@@ -16,8 +16,11 @@
                         <span class="me-2">Profile</span> <span class="badge bg-dark">{{profile_data.full_name}}</span>
                     </span>
                 </router-link>
-                <router-link :to="{name: 'dashboard'}" class="admin-sidebar-body-link" @click="remove">
-                    Recent Added
+                <router-link :to="{name: 'dashboard'}" class="admin-sidebar-body-link">
+                    Dashboard
+                </router-link>
+                <router-link :to="{name: 'bookmark'}" class="admin-sidebar-body-link" @click="remove">
+                    Bookmark
                 </router-link>
             </div>
             <a href="javascript:void(0)" class="admin-sidebar-footer" @click="logout">

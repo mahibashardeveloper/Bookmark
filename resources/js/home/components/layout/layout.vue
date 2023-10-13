@@ -2,10 +2,10 @@
 
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container">
-            <a class="navbar-brand" href="javascript:void(0)">
+            <router-link class="navbar-brand" :to="{name: 'home'}">
                 <img :src="'/images/logo.png'" class="img-fluid me-3" alt="logo">
                 Bookmark Store
-            </a>
+            </router-link>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -32,7 +32,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a  href="/user/view" class="nav-link" >
+                        <a  href="/user/auth/login" class="nav-link" >
                             Login
                         </a>
                     </li>
@@ -42,8 +42,6 @@
     </nav>
 
     <router-view/>
-
-
 
 </template>
 

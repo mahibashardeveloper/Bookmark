@@ -1,0 +1,22 @@
+
+.pagination{
+    .page-item{
+
+        &.active .page-link{
+            background-color: #eeeeee;
+            border: 1px solid #eeeeee;
+        }
+
+        .page-link{
+            width: 35px;
+            height: 35px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            margin: 0 2px;
+            border-radius: 10px;
+            color: $black;
+        }
+    }
+}

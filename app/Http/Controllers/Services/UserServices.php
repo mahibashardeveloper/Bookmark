@@ -183,16 +183,4 @@ class UserServices extends BaseController
         }
     }
 
-    public static function userList($request)
-    {
-        try {
-            $limit = $request->limit ?? 10000;
-            $results = User::orderBy('id', 'desc');
-            $paginatedData = $results->paginate($limit);
-            return ['status' => 200, 'data' => $paginatedData];
-        } catch (\Exception $e){
-            return ['status' => 500, 'errors' => $e->getMessage(), 'line' => $e->getLine()];
-        }
-    }
-
 }
