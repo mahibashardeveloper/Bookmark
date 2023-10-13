@@ -1,5 +1,8 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FrontController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -11,4 +14,6 @@
 |
 */
 
-
+Route::prefix('user')->group( function () {
+    Route::post('/list', [FrontController::class, 'userList'])->name('global.User.List');
+});

@@ -97,7 +97,7 @@
                                     <div class="marge-title py-3">
                                         Url
                                     </div>
-                                    {{each.bookmark_url}}
+                                    <a :href="each.bookmark_url" target="_blank" class="text-dark text-decoration-none"> {{each.bookmark_url}} </a>
                                 </div>
                                 <div class="col-12 col-sm-4 text-sm-end mt-3 mt-sm-0">
                                     <a href="javascript:void(0)" class="text-decoration-none text-secondary me-3" @click="manageModal(1, each.id)">
@@ -271,7 +271,7 @@ export default {
             },
             tableData: [],
             formData: {
-                limit: 10,
+                limit: 30,
                 page: 1
             },
             total_pages: 0,

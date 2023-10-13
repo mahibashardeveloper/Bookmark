@@ -1,11 +1,16 @@
 <template>
-    <div class="authentication">
+    <div class="authentication position-relative">
+        <div class="position-absolute start-0 top-0 p-1">
+            <a href="/home" class="btn btn-link text-decoration-none text-dark">
+                <i class="bi bi-house-fill"></i>
+            </a>
+        </div>
         <div class="container-fluid">
             <div class="row justify-content-around align-items-center vh-100">
                 <div class="col-12 col-lg-5 py-3 d-none d-lg-block">
                     <img :src="'/images/authentication.png'" class="img-fluid rounded-5" alt="authentication background image">
                 </div>
-                <div class="col-12 col-sm-10 col-md-8 col-lg-4 py-3">
+                <div class="col-12 col-sm-10 col-md-8 col-lg-4 my-5">
                     <form @submit.prevent="forget" class="px-5 py-4 border shadow rounded-5 bg-white" v-if="forgetType === 1">
                         <div class="row">
                             <div class="form-group col-md-12 text-center">
