@@ -8,11 +8,16 @@
         </div>
         <div class="fw-bold pt-2 pb-2">Customize Color</div>
         <div class="customize-resource">
-            <button data-color="#2B3A55" class="btn-circle" style="background-color: #2B3A55" @click="remove"></button>
-            <button data-color="#CE7777" class="btn-circle" style="background-color: #CE7777" @click="remove"></button>
-            <button data-color="#E8C4C4" class="btn-circle" style="background-color: #E8C4C4" @click="remove"></button>
-            <button data-color="#F2E5E5" class="btn-circle" style="background-color: #F2E5E5" @click="remove"></button>
-            <button data-color="#eeeeee" class="btn-circle" style="background-color: #eeeeee" @click="remove"></button>
+            <button data-color="#EB726033" class="btn-circle" style="background-color: #EB726033" @click="remove"></button>
+            <button data-color="#3A9AD933" class="btn-circle" style="background-color: #3A9AD933" @click="remove"></button>
+            <button data-color="#92B06A33" class="btn-circle" style="background-color: #92B06A33" @click="remove"></button>
+            <button data-color="#E19D2933" class="btn-circle" style="background-color: #E19D2933" @click="remove"></button>
+            <button data-color="#EB65A033" class="btn-circle" style="background-color: #EB65A033" @click="remove"></button>
+            <button data-color="#9B539C33" class="btn-circle" style="background-color: #9B539C33" @click="remove"></button>
+            <button data-color="#29ABA433" class="btn-circle" style="background-color: #29ABA433" @click="remove"></button>
+            <button data-color="#65778633" class="btn-circle" style="background-color: #65778633" @click="remove"></button>
+            <button data-color="#3E3E3E33" class="btn-circle" style="background-color: #3E3E3E33" @click="remove"></button>
+
         </div>
     </div>
 
