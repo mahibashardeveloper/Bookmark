@@ -1,7 +1,7 @@
 <template>
     <div class="d-flex justify-content-center align-items-center profile">
 
-        <div class="profile-card col-md-5 border bg-secondary-subtle shadow">
+        <div class="profile-card col-12 col-sm-8 col-md-6 col-lg-4 border bg-secondary-subtle shadow">
             <div class="profile-card-header">
                 <a href="javascript:void(0)" class="edit-profile" @click="openEditProfileModal">
                     <i class="bi bi-pencil-square"></i>
@@ -13,7 +13,7 @@
             <div class="profile-card-body">
                 <div class="d-flex justify-content-center">
                     <div class="mb-3">
-                        <img class="img-fluid profile-avatar" v-if="!profile_data.avatar" :src="'https://ui-avatars.com/api/?name='+profile_data.first_name" alt="profile-dummy">
+                        <img class="img-fluid profile-avatar" v-if="!profile_data.avatar" :src="'https://ui-avatars.com/api/?name='+profile_data.full_name" alt="profile-dummy">
                         <img class="img-fluid profile-avatar" v-else :src="profile_data.media && profile_data.media.full_file_path" alt="profile">
                     </div>
                 </div>
@@ -76,8 +76,8 @@
                     </div>
                 </div>
                 <div class="modal-footer border-0">
-                    <button type="button" class="btn btn-dark" @click="closeEditProfileModal"> Close </button>
-                    <button type="button" class="btn btn-secondary" @click="updateProfile">
+                    <button type="button" class="btn btn-secondary" @click="closeEditProfileModal"> Close </button>
+                    <button type="button" class="btn btn-dark" @click="updateProfile">
                         <span v-if="updateProfileLoading === false">Edit</span>
                         <span v-if="updateProfileLoading === true">Loading...</span>
                     </button>

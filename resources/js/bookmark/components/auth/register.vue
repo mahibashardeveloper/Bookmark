@@ -1,7 +1,7 @@
 <template>
     <div class="authentication position-relative">
         <div class="position-absolute start-0 top-0 p-1">
-            <a href="/front" class="btn-home">
+            <a href="/front/home" class="btn-home">
                 <i class="bi bi-house-fill"></i>
             </a>
         </div>

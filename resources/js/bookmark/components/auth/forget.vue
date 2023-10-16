@@ -1,7 +1,7 @@
 <template>
     <div class="authentication position-relative">
         <div class="position-absolute start-0 top-0 p-1">
-            <a href="/front" class="btn-home">
+            <a href="/front/home" class="btn-home">
                 <i class="bi bi-house-fill"></i>
             </a>
         </div>
@@ -85,9 +85,13 @@
                     </form>
 
                     <div class="w-100 h-100 d-flex justify-content-center align-items-center" v-if="forgetType === 3">
-                        <div class="text-center">
-                            Successfully reset your account <br><br>
-                            <router-link :to="{name: 'login'}">Login</router-link>
+                        <div class="text-center py-5 w-100 rounded-3 shadow">
+                            <div class="mb-4 fw-bold">
+                                Successfully reset your account
+                            </div>
+                            <router-link :to="{name: 'login'}" class="text-decoration-none text-primary">
+                                Login
+                            </router-link>
                         </div>
                     </div>
 

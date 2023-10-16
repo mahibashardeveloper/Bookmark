@@ -14,9 +14,7 @@
                     <i class="bi bi-x-lg"></i>
                 </a>
                 <router-link :to="{name: 'home'}" class="menu-link" @click="remove">Home</router-link>
-                <router-link :to="{name: 'about'}" class="menu-link" @click="remove">About</router-link>
-                <router-link :to="{name: 'contact'}" class="menu-link" @click="remove">Contact</router-link>
-                <router-link :to="{name: 'blog'}" class="menu-link" @click="remove">Blog</router-link>
+                <router-link :to="{name: 'membership'}" class="menu-link" @click="remove">Membership</router-link>
                 <a href="/user" class="menu-link" @click="remove">Login</a>
             </div>
         </div>

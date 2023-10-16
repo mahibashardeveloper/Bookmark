@@ -13,7 +13,6 @@
             <button data-color="#9B539C33" class="btn-circle" style="background-color: #9B539C33" @click="remove"></button>
             <button data-color="#29ABA433" class="btn-circle" style="background-color: #29ABA433" @click="remove"></button>
             <button data-color="#65778633" class="btn-circle" style="background-color: #65778633" @click="remove"></button>
-
         </div>
     </div>
 
@@ -28,11 +27,6 @@
                 </a>
             </div>
             <div class="admin-sidebar-body">
-                <router-link :to="{name: 'profile'}" class="admin-sidebar-body-link" @click="remove">
-                    <span class="text-capitalize d-flex align-items-center">
-                        <span class="me-2">Profile</span> <span class="badge bg-dark">{{profile_data.full_name}}</span>
-                    </span>
-                </router-link>
                 <router-link :to="{name: 'dashboard'}" class="admin-sidebar-body-link">
                     Dashboard
                 </router-link>
@@ -53,6 +47,12 @@
             <div class="admin-content-header">
                 <a href="javascript:void(0)" class="admin-content-header-controller" @click="adminSideBarController">
                     <i class="bi bi-justify-left"></i>
+                </a>
+                <router-link :to="{name: 'profile'}" class="text-decoration-none text-white me-2">
+                    profile
+                </router-link>
+                <a href="javascript:void(0)" class="text-decoration-none text-white" @click="logout">
+                    Logout
                 </a>
             </div>
             <div class="admin-content-body">

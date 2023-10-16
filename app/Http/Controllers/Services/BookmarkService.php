@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Services;
 
 use App\Models\Bookmark;
+use Carbon\Carbon;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
@@ -38,6 +39,7 @@ class BookmarkService extends BaseController
     {
         try {
             $user_id = Auth::guard('users')->id();
+            $date = $request->date ?? 'all';
             $limit = $request->limit ?? 10;
             $keyword = $request->q ?? '';
             $results = Bookmark::where('user_id', $user_id)->orderBy('id', 'desc');
@@ -47,6 +49,25 @@ class BookmarkService extends BaseController
                     $q->orwhere('bookmark_url', 'LIKE', '%' . $keyword . '%');
                 });
             }
+
+            if (isset($date) && !empty($date)) {
+                if($date == 'today'){
+                    $results->whereDay('created_at', now()->day);
+                }
+                if($date == 'tomorrow'){
+                    $results->whereDay('created_at', now()->day + 1);
+                }
+                if($date == 'week'){
+                    $startDate = Carbon::today();
+                    $endDate = Carbon::today()->addDays(7);
+                    $results->whereBetween('created_at', [$startDate,$endDate]);
+                }
+                if($date == 'month'){
+                    $currentMonth = date('m');
+                    $results->whereRaw('MONTH(created_at) = ?',[$currentMonth]);
+                }
+            }
+
             $paginatedData = $results->paginate($limit);
             return ['status' => 200, 'data' => $paginatedData];
         } catch (\Exception $e) {

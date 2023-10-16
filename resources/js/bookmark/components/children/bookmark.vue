@@ -4,7 +4,7 @@
 
         <div class="container-fluid">
             <div class="d-flex flex-wrap justify-content-between px-4">
-                <div class="col-12 col-md-9 col-lg-6 mb-3">
+                <div class="col-12 col-md-9 col-lg-6 mt-4">
                     <div class="position-relative">
                         <input type="text" placeholder="Search Here" class="form-control py-2 ps-5 shadow-none border-secondary-subtle" v-model="formData.q" @keyup="SearchData">
                         <div class="position-absolute translate-middle-y top-50 start-0 ps-3">
@@ -12,7 +12,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3 mb-3 text-end">
+                <div class="col-md-3 text-end mt-4">
                     <a href="javascript:void(0)" class="btn btn-dark px-4 py-2" @click="manageModal(1, null)">
                         <i class="bi bi-star-fill me-2"></i> Add
                     </a>
@@ -20,23 +20,33 @@
             </div>
         </div>
 
-        <div class="container-fluid">
+        <div class="container-fluid mt-4">
             <div class="px-4">
                 <div class="card-content">
                     <div class="card-header border-bottom">
-                        <div class="me-3 h4">
-                            <i class="bi bi-cloud-fill me-2"></i>
-                            All Bookmark
+                        <div class="me-3 col-md-6">
+                            <div class="me-3 h4">
+                                <i class="bi bi-cloud-fill me-2"></i>
+                                All Bookmark
+                            </div>
+                            <span class="d-flex align-items-center ms-3" v-if="tableData.length > 0 && loading === false && selected.length > 0">
+                                <a href="javascript:void(0)" class="select-icon" @click="deleteModal(1)">
+                                    <i class="bi bi-trash2"></i>
+                                </a>
+                                <a href="javascript:void(0)" class="ms-2 select-icon" v-if="selected.length === 1" @click="openEditModal">
+                                    <i class="bi bi-pencil-square"></i>
+                                </a>
+                            </span>
                         </div>
-                        <span class="d-flex align-items-center ms-3" v-if="tableData.length > 0 && loading === false && selected.length > 0">
-                            <a href="javascript:void(0)" class="select-icon" @click="deleteModal(1)">
-                                <i class="bi bi-trash2"></i>
-                            </a>
-                            <a href="javascript:void(0)" class="ms-2 select-icon" v-if="selected.length === 1" @click="openEditModal">
-                                <i class="bi bi-pencil-square"></i>
-                            </a>
-                        </span>
-
+                        <div class="col-12 col-sm-6 col-md-4">
+                            <select class="form-select" v-model="formData.date" @change="filterDataRes()">
+                                <option value="today">Today</option>
+                                <option value="tomorrow">Tomorrow</option>
+                                <option value="7">Next 7 days</option>
+                                <option value="month">Till end of Month</option>
+                                <option value="all">All</option>
+                            </select>
+                        </div>
                     </div>
                     <div class="card-body">
 
@@ -198,10 +208,10 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary px-4 py-2" @click="manageModal(2,'')">
+                        <button type="button" class="btn btn-secondary" @click="manageModal(2,'')">
                             Cancel
                         </button>
-                        <button type="button" class="btn btn-dark px-4 py-2" @click="manageBookmark">
+                        <button type="button" class="btn btn-dark" @click="manageBookmark">
                             <span v-if="createLoading === false">
                                 <span v-if="bookmarkParam.id === ''">
                                     Save
@@ -233,8 +243,8 @@
                     </div>
                 </div>
                 <div class="modal-footer border-top-0 d-flex justify-content-around align-items-center">
-                    <button type="button" class="col-5 btn btn-secondary px-4 py-2" @click="deleteModal(2,'')">Cancel</button>
-                    <button type="button" class="col-5 btn btn-danger px-4 py-2" @click="deleteBookmark">
+                    <button type="button" class="col-5 btn btn-secondary" @click="deleteModal(2,'')">Cancel</button>
+                    <button type="button" class="col-5 btn btn-danger" @click="deleteBookmark">
                         <span v-if="deleteLoading === false">
                             Confirm
                         </span>
@@ -272,6 +282,7 @@
                 },
                 tableData: [],
                 formData: {
+                    date: 'today',
                     limit: 30,
                     page: 1
                 },
@@ -292,6 +303,10 @@
         },
 
         methods: {
+
+            filterDataRes() {
+                this.list();
+            },
 
             toggleCheckAll(e) {
                 if (e.target.checked) {
