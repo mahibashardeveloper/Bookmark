@@ -13,17 +13,22 @@
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item">
                         <a class="nav-link" href="javascript:void(0)">
-                            Download
+                            Home
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#about">
+                        <a class="nav-link" href="javascript:void(0)">
                             About
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#pricing">
-                            Pricing
+                        <a class="nav-link" href="javascript:void(0)">
+                            Contact
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0)">
+                            Blog
                         </a>
                     </li>
                     <li class="nav-item">

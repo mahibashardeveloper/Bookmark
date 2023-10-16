@@ -1,5 +1,21 @@
 <template>
 
+    <div class="customize" :class="{active: isActiveCustomizeTab}">
+        <div class="gear-top">
+            <a href="javascript:void(0)" class="gear-controller" @click="customizeTab">
+                <i class="bi bi-gear-fill"></i>
+            </a>
+        </div>
+        <div class="fw-bold pt-2 pb-2">Customize Color</div>
+        <div class="customize-resource">
+            <button data-color="#2B3A55" class="btn-circle" style="background-color: #2B3A55" @click="remove"></button>
+            <button data-color="#CE7777" class="btn-circle" style="background-color: #CE7777" @click="remove"></button>
+            <button data-color="#E8C4C4" class="btn-circle" style="background-color: #E8C4C4" @click="remove"></button>
+            <button data-color="#F2E5E5" class="btn-circle" style="background-color: #F2E5E5" @click="remove"></button>
+            <button data-color="#eeeeee" class="btn-circle" style="background-color: #eeeeee" @click="remove"></button>
+        </div>
+    </div>
+
     <div class="admin-wrapper">
         <div class="admin-sidebar" :class="{active: isAdminSidebarActive}">
             <div class="admin-sidebar-header">
@@ -57,20 +73,45 @@
                 isAdminSidebarActive: false,
                 profile_data: '',
                 logoutLoading: false,
+                isActiveCustomizeTab: false,
             }
         },
 
         mounted() {
+
+            function setThemeColor(color) {
+                document.querySelector(':root').style.setProperty('--main-color', color);
+            }
+
+            function handleButtonClick(event) {
+                let dataColor = event.target.getAttribute('data-color');
+                setThemeColor(dataColor);
+                localStorage.setItem('selectedColor', dataColor);
+            }
+            let themeButtons = document.querySelectorAll('.btn-circle');
+            themeButtons.forEach(color => {
+                color.addEventListener('click', handleButtonClick);
+            });
+            const storedColor = localStorage.getItem('selectedColor');
+            if (storedColor) {
+                setThemeColor(storedColor);
+            }
+
             this.getProfile();
         },
 
         methods: {
+            customizeTab(){
+                this.isActiveCustomizeTab = !this.isActiveCustomizeTab;
+            },
+
             adminSideBarController(){
                 this.isAdminSidebarActive = !this.isAdminSidebarActive;
             },
 
             remove(){
                 this.isAdminSidebarActive = false;
+                this.isActiveCustomizeTab = false;
             },
 
             getProfile(){

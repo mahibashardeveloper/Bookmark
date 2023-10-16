@@ -24,7 +24,7 @@
         </div>
     </section>
 
-    <section class="w-100 bg-light py-5" id="about">
+    <section class="w-100 bg-light py-5">
         <div class="container">
             <div class="row align-items-center justify-content-start text-center">
                 <div class="px-3 py-5 col-12 h1">
@@ -59,7 +59,7 @@
         </div>
     </section>
 
-    <section class="w-100 bg-white py-5" id="pricing">
+    <section class="w-100 bg-white py-5">
         <div class="container">
             <div class="h1 px-3 py-5 col-12 h1 text-center">
                 The memberships in comparison.

@@ -1,5 +1,22 @@
 .authentication{
 
+    .btn-home{
+        display: inline-block;
+        padding: 5px 10px;
+        text-decoration: none;
+        color: $black;
+        transition: 0.3s all ease-in-out;
+        box-shadow: 0 0 8px 0 #888888;
+        border-radius: 6px;
+
+        &:hover{
+            background-color: $black;
+            color: $white;
+            transition: 0.3s all ease-in-out;
+        }
+
+    }
+
     .form-group{
         padding: 10px;
 

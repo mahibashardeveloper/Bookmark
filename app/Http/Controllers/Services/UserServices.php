@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Services;
 
-use App\Models\Time;
 use App\Models\UserLogs;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\Auth;

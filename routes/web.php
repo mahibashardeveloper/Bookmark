@@ -20,6 +20,6 @@ Route::middleware('UserLoginCheck')->get('user/', [UserController::class, 'index
 Route::middleware('UserLoginCheck')->get('user/{any}', [UserController::class, 'index'])->where('any','.*')->name('lvs.user.any');
 Route::middleware('UserLoginCheck')->get('user/', function (){ return redirect()->route('lvs.user.any','dashboard'); });
 
-Route::get('/home', [FrontController::class, 'index'])->where('any', '.*')->name('lvs.home');
-Route::get('/home/{any}', [FrontController::class, 'index'])->where('any', '.*')->name('lvs.home.any');
-Route::get('', function (){ return redirect()->route('lvs.home.any', ''); });
+Route::get('/front', [FrontController::class, 'index'])->where('any', '.*')->name('lvs.front');
+Route::get('/front/{any}', [FrontController::class, 'index'])->where('any', '.*')->name('lvs.front.any');
+Route::get('', function (){ return redirect()->route('lvs.front.any', ''); });

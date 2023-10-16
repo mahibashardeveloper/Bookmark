@@ -189,7 +189,7 @@
                         <div class="mb-3">
                             <label for="bookmark_name" class="form-label">Bookmark Name</label>
                             <input type="text" name="bookmark_name" class="form-control border-secondary-subtle" v-model="bookmarkParam.bookmark_name" autocomplete="off">
-                            <div class="error-text" v-if="error != null && error.bookmark_url !== undefined" v-text="error.bookmark_url[0]"></div>
+                            <div class="error-text" v-if="error != null && error.bookmark_name !== undefined" v-text="error.bookmark_name[0]"></div>
                         </div>
                         <div class="mb-3">
                             <label for="bookmark_url" class="form-label">Bookmark Url</label>

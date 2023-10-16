@@ -1,0 +1,63 @@
+.customize {
+    position: fixed;
+    top: 70px;
+    right: -250px;
+    width: 250px;
+    height: auto;
+    box-shadow: 0 0 3px 0 #888888;
+    padding: 10px;
+    z-index: 999;
+    background-color: #ffffff;
+    transition: 0.3s all ease-in-out;
+
+    &.active {
+        right: 0;
+        transition: 0.3s all ease-in-out;
+    }
+
+    .gear-top {
+        background-color: #ffffff;
+        position: relative;
+        top: -10px;
+        left: -60px;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 0 3px 0 #888888;
+        overflow: hidden;
+
+        .gear-controller {
+            text-decoration: none;
+            color: #000000;
+            transition: 0.3s all ease-in-out;
+            transform: rotate(0deg);
+            padding: 60px;
+
+            &:hover {
+                transition: 0.3s all ease-in-out;
+                transform: rotate(90deg);
+            }
+
+        }
+    }
+
+    .customize-resource {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+
+        .btn-circle {
+            width: 50px;
+            height: 50px;
+            outline: none;
+            border: none;
+            margin: 2.5px;
+            border-radius: 50%;
+        }
+
+    }
+
+}

@@ -108,7 +108,7 @@
     .admin-content{
         height: 100vh;
         width: calc(100% - 239px);
-        background-color: rgba(238, 238, 238, 0.5);
+        background-color: var(--main-color);
 
         @media screen and (max-width: 991px) {
             width: 100%;
