@@ -1,45 +1,26 @@
 <template>
 
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container">
-            <router-link class="navbar-brand" :to="{name: 'home'}">
-                <img :src="'/images/logo.png'" class="img-fluid me-3" alt="logo">
+    <header class="w-100 bg-light">
+        <div class="header container">
+            <router-link :to="{name: 'home'}" class="header-logo">
+                <img :src="'/images/logo.png'" class="img-fluid logo-res" alt="logo">
                 Bookmark
             </router-link>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="javascript:void(0)">
-                            Home
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="javascript:void(0)">
-                            About
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="javascript:void(0)">
-                            Contact
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="javascript:void(0)">
-                            Blog
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a  href="/user/auth/login" class="nav-link">
-                            Login
-                        </a>
-                    </li>
-                </ul>
+            <a href="javascript:void(0)" class="btn-controller" @click="headerController">
+                <i class="bi bi-justify-right"></i>
+            </a>
+            <div class="header-menu" :class="{active: isActiveHeaderController}">
+                <a href="javascript:void(0)" class="close-btn-controller" @click="remove">
+                    <i class="bi bi-x-lg"></i>
+                </a>
+                <router-link :to="{name: 'home'}" class="menu-link" @click="remove">Home</router-link>
+                <router-link :to="{name: 'about'}" class="menu-link" @click="remove">About</router-link>
+                <router-link :to="{name: 'contact'}" class="menu-link" @click="remove">Contact</router-link>
+                <router-link :to="{name: 'blog'}" class="menu-link" @click="remove">Blog</router-link>
+                <a href="/user" class="menu-link" @click="remove">Login</a>
             </div>
         </div>
-    </nav>
+    </header>
 
 </template>
 
@@ -49,7 +30,9 @@ export default {
 
     data(){
 
-        return{}
+        return{
+            isActiveHeaderController: false,
+        }
 
     },
 
@@ -61,7 +44,13 @@ export default {
 
     methods: {
 
+        headerController(){
+            this.isActiveHeaderController = !this.isActiveHeaderController;
+        },
 
+        remove(){
+            this.isActiveHeaderController = false;
+        }
 
     }
 

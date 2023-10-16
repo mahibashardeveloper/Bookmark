@@ -38,7 +38,7 @@ class BookmarkService extends BaseController
     {
         try {
             $user_id = Auth::guard('users')->id();
-            $limit = $request->limit ?? 10000;
+            $limit = $request->limit ?? 10;
             $keyword = $request->q ?? '';
             $results = Bookmark::where('user_id', $user_id)->orderBy('id', 'desc');
             if (isset($keyword) && !empty($keyword)) {

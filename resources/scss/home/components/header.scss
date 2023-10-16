@@ -1,34 +1,103 @@
-.navbar{
-    padding: 20px;
-    .navbar-brand{
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+    padding: 10px 20px;
 
-    }
-    .navbar-toggler{
-        box-shadow: 0 0 0 0;
-        .navbar-toggler-icon{
+    .header-logo{
+        text-decoration: none;
+        color: #000000;
+        display: inline-block;
+        padding: 10px 20px;
+        font-size: 20px;
+
+        .logo-res{
+            margin-right: 20px;
         }
+
     }
-    .collapse{
-        .navbar-nav{
-            .nav-item{
-                padding: 5px 10px;
 
-                @media screen and (max-width: 991px) {
-                    padding: 0;
-                }
+    .btn-controller{
+        text-decoration: none;
+        color: #000000;
+        display: none;
+        padding: 10px 20px;
 
-                .nav-link{
-                    padding: 10px 20px;
-                    transition: 0.3s all ease-in-out;
-                    color: $black;
+        @media screen and (max-width: 991px) {
+            display: inline-block;
+        }
 
-                    &:hover{
-                        transition: 0.3s all ease-in-out;
-                        background-color: #eeeeee;
-                    }
+        &:hover{
+            background-color: #eeeeee;
+        }
 
-                }
+    }
+
+    .header-menu{
+        display: flex;
+        justify-content: start;
+        align-items: center;
+
+        @media screen and (max-width: 991px) {
+            display: block;
+            position: fixed;
+            top: 0;
+            right: -250px;
+            box-shadow: 0 0 8px 0 #888888;
+            width: 250px;
+            height: 100vh;
+            background-color: #ffffff;
+            padding: 20px;
+            transition: 0.3s all ease-in-out;
+
+            &.active{
+                right: 0;
             }
+
         }
+
+        .close-btn-controller{
+            text-decoration: none;
+            color: #000000;
+            display: none;
+            padding: 10px 20px;
+            transition: 0.3s all ease-in-out;
+
+            @media screen and (max-width: 991px) {
+                display: inline-block;
+            }
+
+            &:hover{
+                transition: 0.3s all ease-in-out;
+                background-color: #eeeeee;
+            }
+
+        }
+
+        a{
+            text-decoration: none;
+            color: #000000;
+            display: inline-block;
+            padding: 10px 20px;
+            transition: 0.3s all ease-in-out;
+
+            @media screen and (max-width: 991px) {
+                display: block;
+                margin-bottom: 10px;
+            }
+
+            &:hover{
+                transition: 0.3s all ease-in-out;
+                background-color: #eeeeee;
+            }
+
+            &.router-link-active{
+                background-color: #eeeeee;
+            }
+
+        }
+
     }
+
 }

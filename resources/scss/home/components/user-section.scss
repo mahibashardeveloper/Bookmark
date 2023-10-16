@@ -1,0 +1,11 @@
+.user-section{
+    .user-photo{
+        width: 35px;
+        height: 35px;
+        object-fit: contain;
+        overflow: hidden;
+    }
+    .user-text{
+        font-size: 15px;
+    }
+}

@@ -215,6 +215,58 @@
         </div>
     </section>
 
+    <section class="bg-light w-100 user-section py-5">
+        <div class="container py-5">
+            <div class="py-3 h1 text-center">
+                In the words of our users
+            </div>
+            <div class="user-feedback owl-carousel owl-theme">
+                <div class="item">
+                    <div class="p-3">
+                        <div class="bg-white d-flex align-items-center justify-content-start p-3">
+                            <img :src="'/images/avatar.png'" class="img-fluid user-photo" alt="avatar">
+                            <div class="user-text py-3">
+                                <div class="fw-bold mb-2">Hyun-Kyung Yi</div>
+                                    <div class="text-secondary">
+                                        A simple, lightweight, yet powerful application
+                                    to store my bookmarks in the cloud.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="p-3">
+                        <div class="bg-white d-flex align-items-center justify-content-start p-3">
+                            <img :src="'/images/avatar.png'" class="img-fluid user-photo" alt="avatar">
+                            <div class="user-text py-3">
+                                <div class="fw-bold mb-2">David Lafond</div>
+                                    <div class="text-secondary">
+                                        My portal to the web. I tried many bookmark
+                                    manager, and this is the best one.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="p-3">
+                        <div class="bg-white d-flex align-items-center justify-content-start p-3">
+                            <img :src="'/images/avatar.png'" class="img-fluid user-photo" alt="avatar">
+                            <div class="user-text py-3">
+                                <div class="fw-bold mb-2">Anonymous</div>
+                                <div class="text-secondary">
+                                    I love the sleek and simple design! The focus
+                                    lies on what's important: managing bookmarks.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
 </template>
 
 <script>
@@ -228,6 +280,23 @@
         },
 
         mounted() {
+
+            $('.user-feedback').owlCarousel({
+                loop:true,
+                margin:10,
+                nav:true,
+                responsive:{
+                    0:{
+                        items:1
+                    },
+                    600:{
+                        items:2
+                    },
+                    1000:{
+                        items:3
+                    }
+                }
+            })
 
         },
 

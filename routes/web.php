@@ -22,4 +22,4 @@ Route::middleware('UserLoginCheck')->get('user/', function (){ return redirect()
 
 Route::get('/front', [FrontController::class, 'index'])->where('any', '.*')->name('lvs.front');
 Route::get('/front/{any}', [FrontController::class, 'index'])->where('any', '.*')->name('lvs.front.any');
-Route::get('', function (){ return redirect()->route('lvs.front.any', ''); });
+Route::get('', function (){ return redirect()->route('lvs.front.any', 'home'); });
