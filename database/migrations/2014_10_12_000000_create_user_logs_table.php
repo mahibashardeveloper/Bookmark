@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('user_logs', function (Blueprint $table) {
             $table->id();
             $table->unsignedInteger('user_id');
+            $table->ipAddress('ip_address');
             $table->dateTime('created_at')->useCurrent();
             $table->timestamp('updated_at')->nullable()->useCurrentOnUpdate();
         });

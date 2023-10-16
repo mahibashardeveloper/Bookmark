@@ -57,9 +57,11 @@ class UserServices extends BaseController
             if(Auth::guard('users')->attempt($credential, $request->remember)){
                 $user = Auth::guard('users')->user();
 
-                // set user login log
+                $ipAddress = getenv('HTTP_CLIENT_IP');
+
                 $log = new UserLogs();
                 $log->user_id = $user->id;
+                $log->ip_address = $ipAddress;
                 $log->save();
 
                 return ['status' => 200, 'data' => $user];

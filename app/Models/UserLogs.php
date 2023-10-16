@@ -21,4 +21,5 @@ class UserLogs extends Model
             return null;
         }
     }
+
 }
