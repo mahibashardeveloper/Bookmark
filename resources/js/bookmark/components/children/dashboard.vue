@@ -43,7 +43,7 @@
                         <div v-if="tableData.length > 0 && loading === false">
                             <div class="row card-topic">
                                 <div class="col-12 col-sm-6 d-none d-sm-block">
-                                    Email
+                                    Ip Address
                                 </div>
                                 <div class="col-12 col-sm-6 d-none d-sm-block">
                                     Access Time
@@ -52,9 +52,9 @@
                             <div class="row card-list" v-for="(each) in tableData">
                                 <div class="col-12 col-sm-6">
                                     <div class="marge-title py-3">
-                                        Email
+                                        IP Address
                                     </div>
-                                    {{profile_data.email}}
+                                    {{each.ip_address}}
                                 </div>
                                 <div class="col-12 col-sm-6">
                                     <div class="marge-title py-3">
