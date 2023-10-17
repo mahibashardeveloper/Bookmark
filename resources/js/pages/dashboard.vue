@@ -1,9 +1,18 @@
 <template>
 
-    <div class="container-fluid mt-4">
+    <div class="h1 text-center py-5">
+        Dashboard
+        <div class="d-flex justify-content-center">
+            <div class="col-7 col-lg-4">
+                <hr>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
         <div class="row">
 
-            <div class="col-lg-6">
+            <div class="col-lg-6 py-5">
                 <div class="px-4">
 
                     <!-- card content start -->
@@ -88,7 +97,7 @@
                 </div>
             </div>
 
-            <div class="col-lg-6">
+            <div class="col-lg-6 py-5">
                 <div class="px-4">
 
                     <!-- card content start -->
