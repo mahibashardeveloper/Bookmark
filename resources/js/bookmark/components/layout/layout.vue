@@ -8,33 +8,33 @@
         </div>
         <div class="fw-bold pt-2 pb-2">Customize Color</div>
         <div class="customize-resource">
-            <button data-color="#3A9AD933" class="btn-circle" style="background-color: #3A9AD933" @click="remove"></button>
-            <button data-color="#92B06A33" class="btn-circle" style="background-color: #92B06A33" @click="remove"></button>
-            <button data-color="#9B539C33" class="btn-circle" style="background-color: #9B539C33" @click="remove"></button>
-            <button data-color="#29ABA433" class="btn-circle" style="background-color: #29ABA433" @click="remove"></button>
-            <button data-color="#65778633" class="btn-circle" style="background-color: #65778633" @click="remove"></button>
+            <span data-color="#DC354533" style="background-color: #DC354533;" class="btn-circle" @click="remove"></span>
+            <span data-color="#0D6EFD33" style="background-color: #0D6EFD33;" class="btn-circle" @click="remove"></span>
+            <span data-color="#6C757D33" style="background-color: #6C757D33;" class="btn-circle" @click="remove"></span>
+            <span data-color="#19875433" style="background-color: #19875433;" class="btn-circle" @click="remove"></span>
+            <span data-color="#0DCAF033" style="background-color: #0DCAF033;" class="btn-circle" @click="remove"></span>
         </div>
     </div>
 
-    <div class="admin-wrapper">
-        <div class="admin-sidebar" :class="{active: isAdminSidebarActive}">
-            <div class="admin-sidebar-header">
-                <router-link :to="{name: 'dashboard'}" class="admin-title" @click="remove">
+    <div class="user-wrapper">
+        <div class="user-sidebar" :class="{active: isUserSidebarActive}">
+            <div class="user-sidebar-header">
+                <router-link :to="{name: 'dashboard'}" class="user-title" @click="remove">
                     Bookmark
                 </router-link>
-                <a href="javascript:void(0)" class="admin-close" @click="remove">
+                <a href="javascript:void(0)" class="user-close" @click="remove">
                     <i class="bi bi-x-lg"></i>
                 </a>
             </div>
-            <div class="admin-sidebar-body">
-                <router-link :to="{name: 'dashboard'}" class="admin-sidebar-body-link">
+            <div class="user-sidebar-body">
+                <router-link :to="{name: 'dashboard'}" class="user-sidebar-body-link">
                     Dashboard
                 </router-link>
-                <router-link :to="{name: 'bookmark'}" class="admin-sidebar-body-link" @click="remove">
+                <router-link :to="{name: 'bookmark'}" class="user-sidebar-body-link" @click="remove">
                     Bookmark
                 </router-link>
             </div>
-            <a href="javascript:void(0)" class="admin-sidebar-footer" @click="logout">
+            <a href="javascript:void(0)" class="user-sidebar-footer" @click="logout">
                 <span v-if="logoutLoading === false">
                     Logout
                 </span>
@@ -43,19 +43,26 @@
                 </span>
             </a>
         </div>
-        <div class="admin-content">
-            <div class="admin-content-header">
-                <a href="javascript:void(0)" class="admin-content-header-controller" @click="adminSideBarController">
+        <div class="user-content">
+            <div class="user-content-header">
+                <a href="javascript:void(0)" class="user-content-header-controller" @click="userSideBarController">
                     <i class="bi bi-justify-left"></i>
                 </a>
-                <router-link :to="{name: 'profile'}" class="text-decoration-none text-white me-2">
-                    profile
-                </router-link>
-                <a href="javascript:void(0)" class="text-decoration-none text-white" @click="logout">
-                    Logout
-                </a>
+                <div class="user-info">
+                    <a href="javascript:void(0)" class="text-decoration-none text-white" @click="userDropdownController">
+                        {{profile_data.full_name}}
+                    </a>
+                    <div class="user-dropdown-menu" :class="{active: isUserDropdownActive}">
+                        <router-link :to="{name: 'profile'}" class="user-menu-link">
+                            Profile
+                        </router-link>
+                        <a href="javascript:void(0)" class="user-menu-link" @click="logout">
+                            Logout
+                        </a>
+                    </div>
+                </div>
             </div>
-            <div class="admin-content-body">
+            <div class="user-content-body">
                 <router-view/>
             </div>
         </div>
@@ -71,10 +78,11 @@
 
         data() {
             return {
-                isAdminSidebarActive: false,
+                isUserSidebarActive: false,
                 profile_data: '',
                 logoutLoading: false,
                 isActiveCustomizeTab: false,
+                isUserDropdownActive: false,
             }
         },
 
@@ -106,12 +114,16 @@
                 this.isActiveCustomizeTab = !this.isActiveCustomizeTab;
             },
 
-            adminSideBarController(){
-                this.isAdminSidebarActive = !this.isAdminSidebarActive;
+            userSideBarController(){
+                this.isUserSidebarActive = !this.isUserSidebarActive;
+            },
+
+            userDropdownController(){
+                this.isUserDropdownActive = !this.isUserDropdownActive;
             },
 
             remove(){
-                this.isAdminSidebarActive = false;
+                this.isUserSidebarActive = false;
                 this.isActiveCustomizeTab = false;
             },
 

@@ -133,7 +133,7 @@
                 loading: false,
                 tableData: [],
                 formData: {
-                    limit: 30,
+                    limit: 10,
                     page: 1
                 },
                 total_pages: 0,

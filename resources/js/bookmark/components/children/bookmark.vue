@@ -40,11 +40,11 @@
                         </div>
                         <div class="col-12 col-sm-6 col-md-4">
                             <select class="form-select" v-model="formData.date" @change="filterDataRes()">
+                                <option value="all">All</option>
                                 <option value="today">Today</option>
                                 <option value="tomorrow">Tomorrow</option>
                                 <option value="7">Next 7 days</option>
                                 <option value="month">Till end of Month</option>
-                                <option value="all">All</option>
                             </select>
                         </div>
                     </div>
@@ -94,7 +94,7 @@
                                 </div>
                             </div>
                             <div class="row card-list" v-for="(each) in tableData">
-                                <div class="col-12 col-sm-4">
+                                <div class="col-12 col-sm-4 text-truncate">
                                     <div class="marge-title py-3">
                                         Name
                                     </div>
@@ -103,7 +103,7 @@
                                         {{each.bookmark_name}}
                                     </div>
                                 </div>
-                                <div class="col-12 col-sm-4">
+                                <div class="col-12 col-sm-4 text-truncate">
                                     <div class="marge-title py-3">
                                         Url
                                     </div>
@@ -282,8 +282,8 @@
                 },
                 tableData: [],
                 formData: {
-                    date: 'today',
-                    limit: 30,
+                    date: 'all',
+                    limit: 10,
                     page: 1
                 },
                 total_pages: 0,

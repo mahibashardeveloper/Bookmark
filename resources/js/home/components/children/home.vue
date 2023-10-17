@@ -119,15 +119,15 @@
         </div>
     </section>
 
-    <section class="bg-light w-100 user-section py-5">
+    <section class="bg-white w-100 user-section py-5">
         <div class="container py-5">
-            <div class="py-3 h1 text-center">
+            <div class="py-3 h1 text-center fw-bold">
                 In the words of our users
             </div>
             <div class="user-feedback owl-carousel owl-theme">
                 <div class="item">
                     <div class="p-3">
-                        <div class="bg-white d-flex align-items-center justify-content-start p-3">
+                        <div class="bg-light d-flex align-items-center justify-content-start p-3">
                             <div class="col-3">
                                 <img :src="'/images/avatar.png'" class="img-fluid" alt="avatar">
                             </div>
@@ -143,7 +143,7 @@
                 </div>
                 <div class="item">
                     <div class="p-3">
-                        <div class="bg-white d-flex align-items-center justify-content-start p-3">
+                        <div class="bg-light d-flex align-items-center justify-content-start p-3">
                             <div class="col-3">
                                 <img :src="'/images/avatar.png'" class="img-fluid" alt="avatar">
                             </div>
@@ -159,11 +159,11 @@
                 </div>
                 <div class="item">
                     <div class="p-3">
-                        <div class="bg-white d-flex align-items-center justify-content-start p-3">
-                            <div class="col-3">
+                        <div class="bg-light d-flex align-items-center justify-content-start p-3">
+                            <div class="col-2">
                                 <img :src="'/images/avatar.png'" class="img-fluid" alt="avatar">
                             </div>
-                            <div class="user-text py-3 col-9">
+                            <div class="user-text py-3 col-10">
                                 <div class="fw-bold mb-2">Anonymous</div>
                                 <div class="text-secondary">
                                     I love the sleek and simple design! The focus

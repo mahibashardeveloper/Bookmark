@@ -35,7 +35,7 @@
 
     .card-body{
         width: 100%;
-        height: calc(100vh - 320px);
+        height: calc(100vh - 400px);
         overflow-x: hidden;
         overflow-y: scroll;
 
@@ -59,8 +59,9 @@
 
         .card-list{
             padding: 10px 15px;
+            border-bottom: 1px solid #eeeeee;
 
-            &:nth-child(even){
+            &:hover{
                 background-color: var(--main-color) ;
             }
 
@@ -84,11 +85,13 @@
         padding-top: 10px;
 
         .pagination{
+
             .page-item{
 
                 &.active .page-link{
-                    background-color: #ffffff;
-                    border: 1px solid #ffffff;
+                    background-color: #000000;
+                    color: #ffffff;
+                    border: 1px solid #000000;
                 }
 
                 .page-link{
@@ -101,6 +104,7 @@
                     margin: 0 2px;
                     border-radius: 10px;
                     color: #000000;
+                    border: 1px solid #888888;
                 }
             }
         }

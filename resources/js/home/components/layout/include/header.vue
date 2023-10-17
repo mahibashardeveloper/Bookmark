@@ -13,9 +13,18 @@
                 <a href="javascript:void(0)" class="close-btn-controller" @click="remove">
                     <i class="bi bi-x-lg"></i>
                 </a>
-                <router-link :to="{name: 'home'}" class="menu-link" @click="remove">Home</router-link>
-                <router-link :to="{name: 'membership'}" class="menu-link" @click="remove">Membership</router-link>
-                <a href="/user" class="menu-link" @click="remove">Login</a>
+                <router-link :to="{name: 'home'}" class="menu-link" @click="remove">
+                    Features
+                </router-link>
+                <router-link :to="{name: 'membership'}" class="menu-link" @click="remove">
+                    Memberships
+                </router-link>
+                <router-link :to="{name: 'about'}" class="menu-link" @click="remove">
+                    About us
+                </router-link>
+                <a href="/user" class="menu-link" @click="remove">
+                    Login
+                </a>
             </div>
         </div>
     </header>
