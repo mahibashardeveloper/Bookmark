@@ -32,7 +32,7 @@
             <div class="px-4">
 
                 <!-- card content start -->
-                <div class="card-content body-scroll">
+                <div class="card-content">
 
                     <!-- card header start -->
                     <div class="card-header border-bottom">
