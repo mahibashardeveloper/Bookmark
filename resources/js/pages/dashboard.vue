@@ -12,7 +12,7 @@
     <div class="container-fluid">
         <div class="row">
 
-            <div class="col-lg-6 py-5">
+            <div class="col-lg-6 pb-5">
                 <div class="px-4">
 
                     <!-- card content start -->
@@ -97,7 +97,7 @@
                 </div>
             </div>
 
-            <div class="col-lg-6 py-5">
+            <div class="col-lg-6 pb-5">
                 <div class="px-4">
 
                     <!-- card content start -->
