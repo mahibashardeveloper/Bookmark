@@ -20,6 +20,16 @@
         <app></app>
     </div>
 
+    <script>
+        window.core = {
+            @if(auth()->check())
+            UserInfo: {!! auth()->user() !!},
+            @else
+            UserInfo: null
+            @endif
+        }
+    </script>
+
 </body>
-@vite('resources/js/home/app.js')
+@vite('resources/js/app.js')
 </html>

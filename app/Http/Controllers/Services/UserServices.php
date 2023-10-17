@@ -53,8 +53,8 @@ class UserServices extends BaseController
                 return ['status' => 500, 'errors' => $validator->errors()];
             }
             $credential = ['email' => $request->email, 'password' => $request->password];
-            if(Auth::guard('users')->attempt($credential, $request->remember)){
-                $user = Auth::guard('users')->user();
+            if(Auth::attempt($credential, $request->remember)){
+                $user = Auth::user();
 
                 $ipAddress = $request->ip();
 
@@ -130,7 +130,7 @@ class UserServices extends BaseController
     public static function profile_details($request)
     {
         try {
-            $user_id = Auth::guard('users')->id();
+            $user_id = Auth::id();
             $user = User::with('media')->where('id', $user_id)->first();
             return ['status' => 200, 'data' => $user];
         }catch (\Exception $e ) {
@@ -151,7 +151,7 @@ class UserServices extends BaseController
             if ($validator->fails()) {
                 return ['status' => 500, 'errors' => $validator->errors()];
             }
-            $user = User::where('id', Auth::guard('users')->id())->first();
+            $user = User::where('id', Auth::id())->first();
             $user->full_name = $request->full_name;
             $user->email = $request->email;
             $user->avatar = $request->avatar ?? null;
@@ -174,7 +174,7 @@ class UserServices extends BaseController
             if ($validator->fails()) {
                 return ['status' => 500, 'errors' => $validator->errors()];
             }
-            $user = User::where('id', Auth::guard('users')->id())->first();
+            $user = User::where('id', Auth::id())->first();
             $user->password = bcrypt($request->password);
             $user->save();
             return ['status' => 200,];
@@ -186,7 +186,7 @@ class UserServices extends BaseController
     public static function profile_logout($request)
     {
         try {
-            Auth::guard('users')->logout();
+            Auth::logout();
             return ['status' => 200, 'msg' => 'logout successfully'];
         } catch(\Exception $e) {
             return ['status' => 500, 'errors' => $e->getMessage(), 'line' => $e->getLine()];
@@ -196,7 +196,7 @@ class UserServices extends BaseController
     public static function userLogList($request)
     {
         try {
-            $user_id = Auth::guard('users')->id();
+            $user_id = Auth::id();
             $limit = $request->limit ?? 10000;
             $results = UserLogs::where('user_id', $user_id)->orderBy('id', 'desc');
             $paginatedData = $results->paginate($limit);

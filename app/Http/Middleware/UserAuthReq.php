@@ -16,7 +16,7 @@ class UserAuthReq
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(Auth::guard('users')->check()){
+        if(Auth::check()){
             return $next($request);
         }
         return response() -> json(['status' => 401, 'Login successfully']);

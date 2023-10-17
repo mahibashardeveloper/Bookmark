@@ -8,10 +8,6 @@ use Illuminate\Routing\Controller as BaseController;
 class UserController extends BaseController
 {
 
-    public function index(){
-        return view('app.index');
-    }
-
     public function register(Request $request){
         $rv = UserServices::register($request);
         return response()->json($rv, 200);

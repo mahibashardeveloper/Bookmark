@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UserController;
 use App\Http\Controllers\FrontController;
 
 /*
@@ -15,11 +14,21 @@ use App\Http\Controllers\FrontController;
 |
 */
 
-Route::middleware('UserLoginCheck')->get('user/auth/{any}', [UserController::class, 'index'])->where('any','.*')->name('lvs.user.auth');
-Route::middleware('UserLoginCheck')->get('user/', [UserController::class, 'index'])->where('any','.*')->name('lvs.user');
-Route::middleware('UserLoginCheck')->get('user/{any}', [UserController::class, 'index'])->where('any','.*')->name('lvs.user.any');
-Route::middleware('UserLoginCheck')->get('user/', function (){ return redirect()->route('lvs.user.any','dashboard'); });
+/* --------------------------
+    Front Controller
+------------------------ */
 
-Route::get('/front', [FrontController::class, 'index'])->where('any', '.*')->name('lvs.front');
-Route::get('/front/{any}', [FrontController::class, 'index'])->where('any', '.*')->name('lvs.front.any');
-Route::get('', function (){ return redirect()->route('lvs.front.any', 'home'); });
+//Route::get('/front/profile', function (){ return redirect()->route('lvs.front.any','user_profile'); });
+//Route::get('/front/', [FrontController::class, 'index'])->where('any', '.*')->name('lvs.front');
+//Route::get('/', function (){ return redirect()->route('lvs.front.any','home'); });
+Route::get('/', [FrontController::class, 'index'])->where('any', '.*')->name('home');
+Route::get('/{any}', [FrontController::class, 'index'])->where('any', '.*')->name('home.any');
+
+/* --------------------------
+    User Authentication Controller
+------------------------ */
+
+//Route::middleware('UserLoginCheck')->get('/front/auth/{any}', [FrontController::class, 'index'])->where('any', '.*')->name('lvs.front.auth');
+//Route::middleware('UserLoginCheck')->get('/front/dashboard', [FrontController::class, 'index'])->name('lvs.front.dashboard');
+//Route::middleware('UserLoginCheck')->get('/front/bookmark', [FrontController::class, 'index'])->name('lvs.front.bookmark');
+//Route::middleware('UserLoginCheck')->get('/front/profile', [FrontController::class, 'index'])->name('lvs.front.profile');

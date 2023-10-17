@@ -23,7 +23,7 @@ class BookmarkService extends BaseController
             if ($validator->fails()) {
                 return ['status' => 500, 'errors' => $validator->errors()];
             }
-            $user_id = Auth::guard('users')->id();
+            $user_id = Auth::id();
             $user = new Bookmark();
             $user -> user_id = $user_id;
             $user -> bookmark_name = $request->bookmark_name;
@@ -38,7 +38,7 @@ class BookmarkService extends BaseController
     public static function list($request)
     {
         try {
-            $user_id = Auth::guard('users')->id();
+            $user_id = Auth::id();
             $date = $request->date ?? 'all';
             $limit = $request->limit ?? 10;
             $keyword = $request->q ?? '';
@@ -49,25 +49,6 @@ class BookmarkService extends BaseController
                     $q->orwhere('bookmark_url', 'LIKE', '%' . $keyword . '%');
                 });
             }
-
-            if (isset($date) && !empty($date)) {
-                if($date == 'today'){
-                    $results->whereDay('created_at', now()->day);
-                }
-                if($date == 'tomorrow'){
-                    $results->whereDay('created_at', now()->day + 1);
-                }
-                if($date == 'week'){
-                    $startDate = Carbon::today();
-                    $endDate = Carbon::today()->addDays(7);
-                    $results->whereBetween('created_at', [$startDate,$endDate]);
-                }
-                if($date == 'month'){
-                    $currentMonth = date('m');
-                    $results->whereRaw('MONTH(created_at) = ?',[$currentMonth]);
-                }
-            }
-
             $paginatedData = $results->paginate($limit);
             return ['status' => 200, 'data' => $paginatedData];
         } catch (\Exception $e) {
@@ -78,7 +59,7 @@ class BookmarkService extends BaseController
     public static function single($request)
     {
         try {
-            $user_id = Auth::guard('users')->id();
+            $user_id = Auth::id();
             $validator = Validator::make(
                 $request->all(),
                 [
@@ -101,7 +82,7 @@ class BookmarkService extends BaseController
     public static function update($request)
     {
         try {
-            $user_id = Auth::guard('users')->id();
+            $user_id = Auth::id();
             $validator = Validator::make(
                 $request->all(),
                 [

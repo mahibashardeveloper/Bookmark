@@ -1,0 +1,24 @@
+.pagination {
+
+    .page-item {
+
+        &.active .page-link {
+            background-color: var(--light);
+            border: 1px solid var(--light);
+        }
+
+        .page-link {
+            width: 35px;
+            height: 35px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            margin: 0 2px;
+            border-radius: 10px;
+            color: var(--black);
+        }
+
+    }
+
+}
