@@ -16,30 +16,22 @@
     }
 
     .gear-top {
-        background-color: #ffffff;
         position: relative;
         top: -10px;
         left: -60px;
-        width: 50px;
-        height: 50px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        box-shadow: 0 0 3px 0 #888888;
-        overflow: hidden;
 
         .gear-controller {
+            background-color: #ffffff;
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 0 3px 0 #888888;
+            overflow: hidden;
             text-decoration: none;
             color: #000000;
-            transition: 0.3s all ease-in-out;
-            transform: rotate(0deg);
-            padding: 60px;
-
-            &:hover {
-                transition: 0.3s all ease-in-out;
-                transform: rotate(90deg);
-            }
-
         }
     }
 
@@ -50,6 +42,7 @@
         flex-wrap: wrap;
 
         .btn-circle {
+            cursor: pointer;
             width: 50px;
             height: 50px;
             outline: none;

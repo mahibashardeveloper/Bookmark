@@ -125,16 +125,17 @@
             remove(){
                 this.isUserSidebarActive = false;
                 this.isActiveCustomizeTab = false;
+                this.isUserDropdownActive = false;
             },
 
             getProfile(){
-                apiService.GET(apiRoutes.profile_details, (res) =>{
+                apiService.GET(apiRoutes.profile_details, (res) => {
                     this.profile_data = res.data;
                 });
             },
 
             logout(){
-                apiService.GET(apiRoutes.profile_logout, (res) =>{
+                apiService.GET(apiRoutes.profile_logout, (res) => {
                     if(res.status === 200){
                         window.location.reload()
                     }
