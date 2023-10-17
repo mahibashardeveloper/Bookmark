@@ -1,7 +1,10 @@
 <template>
     <div class="d-flex justify-content-center align-items-center profile">
 
+        <!-- profile card start -->
         <div class="profile-card col-12 col-sm-8 col-md-6 col-lg-4 border bg-secondary-subtle shadow">
+
+            <!-- profile card header start -->
             <div class="profile-card-header">
                 <a href="javascript:void(0)" class="edit-profile" @click="openEditProfileModal">
                     <i class="bi bi-pencil-square"></i>
@@ -10,6 +13,9 @@
                     <i class="bi bi-shield"></i>
                 </a>
             </div>
+            <!-- profile card start end -->
+
+            <!-- profile card body start -->
             <div class="profile-card-body">
                 <div class="d-flex justify-content-center">
                     <div class="mb-3">
@@ -30,7 +36,11 @@
                     {{profile_data.email}}
                 </div>
             </div>
+            <!-- profile card body end -->
+
         </div>
+        <!-- profile card end -->
+
     </div>
 
     <!-- edit profile modal start -->
@@ -38,12 +48,12 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content p-3">
                 <div class="modal-header border-0">
-                    <h1 class="modal-title fw-bold fs-5" id="exampleModalLabel">
-                        Edit Profile
-                    </h1>
+                    <h1 class="modal-title fw-bold fs-5" id="exampleModalLabel"> Edit Profile </h1>
                     <button type="button" class="btn-close" @click="closeEditProfileModal"></button>
                 </div>
                 <div class="modal-body">
+
+                    <!-- upload image start -->
                     <div class="mb-3">
                         <div class="d-flex justify-content-center align-items-center">
                             <label for="file-upload">
@@ -60,6 +70,9 @@
                             </label>
                         </div>
                     </div>
+                    <!-- upload image end -->
+
+                    <!-- full name start -->
                     <div class="mb-3">
                         <label for="first_name" class="form-label">
                             Full Name
@@ -67,6 +80,9 @@
                         <input type="text" id="first_name" name="full_name" class="form-control" v-model="editParam.full_name">
                         <div class="error-text" v-if="error != null && error.full_name !== undefined" v-text="error.full_name[0]"></div>
                     </div>
+                    <!-- full name end -->
+
+                    <!-- email start -->
                     <div class="mb-3">
                         <label for="email" class="form-label">
                             Email
@@ -74,13 +90,19 @@
                         <input type="email" id="email" name="email" class="form-control" v-model="editParam.email">
                         <div class="error-text" v-if="error != null && error.email !== undefined" v-text="error.email[0]"></div>
                     </div>
+                    <!-- email end -->
+
                 </div>
                 <div class="modal-footer border-0">
+
+                    <!-- buttons start -->
                     <button type="button" class="btn btn-secondary" @click="closeEditProfileModal"> Close </button>
                     <button type="button" class="btn btn-dark" @click="updateProfile">
                         <span v-if="updateProfileLoading === false">Edit</span>
                         <span v-if="updateProfileLoading === true">Loading...</span>
                     </button>
+                    <!-- buttons end -->
+
                 </div>
             </div>
         </div>
@@ -92,12 +114,12 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content p-3">
                 <div class="modal-header border-0">
-                    <h1 class="modal-title fw-bold fs-5" id="exampleModalLabel">
-                        Edit Password
-                    </h1>
+                    <h1 class="modal-title fw-bold fs-5" id="exampleModalLabel"> Edit Password </h1>
                     <button type="button" class="btn-close" @click="closeEditPasswordModal"></button>
                 </div>
                 <div class="modal-body">
+
+                    <!-- new password start -->
                     <div class="mb-3">
                         <label for="password" class="form-label">
                             New Password
@@ -105,6 +127,9 @@
                         <input type="password" id="password" name="password" class="form-control" v-model="passwordParam.password">
                         <div class="error-text" v-if="error != null && error.password !== undefined" v-text="error.password[0]"></div>
                     </div>
+                    <!-- new password end -->
+
+                    <!-- confirm password start -->
                     <div class="mb-3">
                         <label for="password_confirmation" class="form-label">
                             Confirm Password
@@ -112,8 +137,12 @@
                         <input type="password" id="password_confirmation" name="password_confirmation" class="form-control" v-model="passwordParam.password_confirmation">
                         <div class="error-text" v-if="error != null && error.password_confirmation !== undefined" v-text="error.password_confirmation[0]"></div>
                     </div>
+                    <!-- confirm password end -->
+
                 </div>
                 <div class="modal-footer border-0">
+
+                    <!-- buttons start -->
                     <button type="button" class="btn btn-secondary" @click="closeEditPasswordModal">
                         Close
                     </button>
@@ -121,6 +150,8 @@
                         <span v-if="updateProfileLoading === false"> Edit </span>
                         <span v-if="updateProfileLoading === true"> Loading... </span>
                     </button>
+                    <!-- buttons end -->
+
                 </div>
             </div>
         </div>
@@ -131,8 +162,8 @@
 
 <script>
 
-import ApiServices from "../services/apiServices.js";
-import ApiRoutes from "../services/apiRoutes.js";
+import apiServices from "../services/apiServices.js";
+import apiRoutes from "../services/apiRoutes.js";
 export default {
 
     data() {
@@ -164,7 +195,7 @@ export default {
             let formData = new FormData();
             formData.append("file", file)
             formData.append("media_type", 1);
-            ApiServices.UPLOAD(ApiRoutes.media, formData, (res) => {
+            apiServices.UPLOAD(apiRoutes.media, formData, (res) => {
                 event.target.value = '';
                 if (res.status === 200) {
                     this.editParam.avatarFilePath = res.data.full_file_path
@@ -207,7 +238,7 @@ export default {
 
         getProfile() {
             this.profileDataLoading = true;
-            ApiServices.GET(ApiRoutes.profile_details, (res) => {
+            apiServices.GET(apiRoutes.profile_details, (res) => {
                 this.profileDataLoading = false;
                 if (res.status === 200) {
                     this.profile_data = res.data;
@@ -218,7 +249,7 @@ export default {
         updateProfile() {
             this.updateProfileLoading = true;
             this.error = null;
-            ApiServices.POST(ApiRoutes.profile_update, this.editParam, (res) => {
+            apiServices.POST(apiRoutes.profile_update, this.editParam, (res) => {
                 this.updateProfileLoading = false;
                 if (res.status === 200) {
                     this.getProfile();
@@ -235,7 +266,7 @@ export default {
         updatePassword() {
             this.updateProfileLoading = true;
             this.error = null;
-            ApiServices.POST(ApiRoutes.profile_password, this.passwordParam, (res) => {
+            apiServices.POST(apiRoutes.profile_password, this.passwordParam, (res) => {
                 this.updateProfileLoading = false;
                 if (res.status === 200) {
                     this.getProfile();

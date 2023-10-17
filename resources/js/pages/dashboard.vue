@@ -2,17 +2,25 @@
 
     <div class="container-fluid mt-4">
         <div class="row">
+
             <div class="col-lg-6">
                 <div class="px-4">
+
+                    <!-- card content start -->
                     <div class="card-content">
+
+                        <!-- card header start -->
                         <div class="card-header border-bottom">
                             <div class="me-3 h4">
                                 User Access time
                             </div>
                         </div>
+                        <!-- card header end -->
+
+                        <!-- card body start -->
                         <div class="card-body">
 
-                            <!-- page loading start -->
+                            <!-- loading start -->
                             <div v-if="loading === true">
                                 <h6 class="card-text placeholder-glow">
                                 <span class="p-2">
@@ -26,9 +34,9 @@
                                 </span>
                                 </h6>
                             </div>
-                            <!-- page loading end -->
+                            <!-- loading end -->
 
-                            <!-- no data start -->
+                            <!-- page no data found start -->
                             <div class="page-no-data-found" v-if="tableData.length === 0 && loading === false">
                                 <div class="w-100">
                                     <div class="mb-3">
@@ -38,9 +46,11 @@
                                     <span>Create New Bookmark to click "Add"</span>
                                 </div>
                             </div>
-                            <!-- no data end -->
+                            <!-- page no data found end -->
 
                             <div v-if="tableData.length > 0 && loading === false">
+
+                                <!-- card topic start -->
                                 <div class="row card-topic">
                                     <div class="col-12 col-sm-6 d-none d-sm-block">
                                         Ip Address
@@ -49,6 +59,9 @@
                                         Access Time
                                     </div>
                                 </div>
+                                <!-- card topic end -->
+
+                                <!-- card list start -->
                                 <div class="row card-list" v-for="(each) in tableData">
                                     <div class="col-12 col-sm-6">
                                         <div class="marge-title py-3">
@@ -63,13 +76,22 @@
                                         {{each.created_at_formatted}}
                                     </div>
                                 </div>
+                                <!-- card list end -->
+
                             </div>
                         </div>
+                        <!-- card body end -->
+
                     </div>
+                    <!-- card content end -->
+
                 </div>
             </div>
+
             <div class="col-lg-6">
                 <div class="px-4">
+
+                    <!-- card content start -->
                     <div class="card-content">
                         <div class="card-header border-bottom">
                             <div class="me-3 col-md-6">
@@ -109,6 +131,8 @@
                             <!-- no data end -->
 
                             <div v-if="latestBookmarkTableData.length > 0 && bookmarkLoading === false">
+
+                                <!-- card topic start -->
                                 <div class="row card-topic">
                                     <div class="col-12 col-sm-6 d-none d-sm-block">
                                         Name
@@ -117,6 +141,9 @@
                                         Url
                                     </div>
                                 </div>
+                                <!-- card topic end -->
+
+                                <!-- card list start -->
                                 <div class="row card-list" v-for="(each) in latestBookmarkTableData">
                                     <div class="col-12 col-sm-6 text-truncate">
                                         <div class="marge-title py-3">
@@ -131,18 +158,25 @@
                                         <a :href="each.bookmark_url" target="_blank" class="text-dark text-decoration-none"> {{each.bookmark_url}} </a>
                                     </div>
                                 </div>
+                                <!-- card list end -->
+
+
                             </div>
                         </div>
+                        <!-- card body end -->
+
                     </div>
+                    <!-- card content end -->
+
                 </div>
             </div>
+
         </div>
     </div>
 
 </template>
 
 <script>
-
     import apiService from "../services/apiServices.js";
     import apiRoutes from "../services/apiRoutes.js";
     export default {
@@ -156,22 +190,11 @@
                     limit: 30,
                     page: 1
                 },
-                bookmark_total_pages: 0,
-                bookmark_current_page: 0,
-                bookmark_buttons: [],
                 tableData: [],
                 formData: {
                     limit: 30,
                     page: 1
                 },
-                total_pages: 0,
-                current_page: 0,
-                buttons: [],
-                searchTimeout: null,
-                error: null,
-                responseData: null,
-                total_data: 0,
-                bookmark_total_data: 0,
             }
         },
 
@@ -190,10 +213,6 @@
                     this.selected = [];
                     if (res.status === 200) {
                         this.tableData = res.data.data;
-                        this.total_data = res.data.total;
-                        this.total_pages = res.data.total < res.data.per_page ? 1 : Math.ceil((res.data.total / res.data.per_page));
-                        this.current_page = res.data.current_page;
-                        this.buttons = [...Array(this.total_pages).keys()].map((i) => i + 1);
                     }
                 });
             },
@@ -205,28 +224,8 @@
                     this.bookmarkLoading = false;
                     if (res.status === 200) {
                         this.latestBookmarkTableData = res.data.data;
-                        this.bookmark_total_data = res.data.total;
                     }
                 });
-            },
-
-            PrevPage() {
-                if (this.current_page > 1) {
-                    this.current_page = this.current_page - 1;
-                    this.list()
-                }
-            },
-
-            NextPage() {
-                if (this.current_page < this.total_pages) {
-                    this.current_page = this.current_page + 1;
-                    this.list()
-                }
-            },
-
-            pageChange(page) {
-                this.current_page = page;
-                this.list();
             },
 
         }

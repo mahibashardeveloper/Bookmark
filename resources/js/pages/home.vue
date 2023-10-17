@@ -1,5 +1,6 @@
 <template>
 
+    <!-- hero section start -->
     <section class="vh-100 d-flex justify-content-center align-items-center hero-section" style="background-image: url('/images/background-image.svg')">
         <div class="py-3 text-center">
             <div class="h1 pb-5 fw-bold">Your bookmarks always available.</div>
@@ -14,7 +15,9 @@
             </div>
         </div>
     </section>
+    <!-- hero section end -->
 
+    <!-- title section start -->
     <section class="w-100 bg-white py-5">
         <div class="container py-5">
             <div class="row align-items-center">
@@ -32,7 +35,9 @@
             </div>
         </div>
     </section>
+    <!-- title section end -->
 
+    <!-- title section start -->
     <section class="w-100 bg-light py-5">
         <div class="container py-5">
             <div class="row align-items-center">
@@ -49,7 +54,9 @@
             </div>
         </div>
     </section>
+    <!-- title section end -->
 
+    <!-- platform group image start -->
     <section class="w-100 bg-white platform py-5">
         <div class="container py-5">
             <div class="h1 fw-bold pb-5 text-center">Booky is available on many platforms.</div>
@@ -100,7 +107,9 @@
             </div>
         </div>
     </section>
+    <!-- platform group image end -->
 
+    <!-- title section start -->
     <section class="bg-light w-100 py-5">
         <div class="container py-5">
             <div class="row align-items-center">
@@ -118,7 +127,9 @@
             </div>
         </div>
     </section>
+    <!-- title section end -->
 
+    <!-- owl carousel - user section section start -->
     <section class="bg-white w-100 user-section py-5">
         <div class="container py-5">
             <div class="py-3 h1 text-center fw-bold">
@@ -176,6 +187,7 @@
             </div>
         </div>
     </section>
+    <!-- owl carousel - user section section end -->
 
 </template>
 
@@ -196,6 +208,7 @@
                 margin:10,
                 nav: false,
                 dots: false,
+                autoplay: true,
                 responsive:{
                     0:{
                         items:1
