@@ -1,8 +1,9 @@
 .card-content {
     width: 100%;
-    background-color: var(--light);
+    background-color: var(--white);
     padding: 20px;
     border-radius: 15px;
+    border: 1px solid var(--light);
 
     .card-header {
         width: 100%;
@@ -35,9 +36,12 @@
 
     .card-body {
         width: 100%;
-        height: calc(100vh - 400px);
-        overflow-x: hidden;
-        overflow-y: scroll;
+
+        &.body-scroll{
+            height: calc(100vh - 400px);
+            overflow-x: hidden;
+            overflow-y: scroll;
+        }
 
         @media screen and (max-width: 600px) {
             height: calc(100vh - 450px);
@@ -59,7 +63,11 @@
 
         .card-list {
             padding: 10px 15px;
-            border-bottom: 1px solid var(--grey);
+            border-bottom: 1px solid var(--light);
+
+            &:last-child{
+                border-bottom: none;
+            }
 
             &:hover {
                 background-color: var(--white);
