@@ -142,7 +142,7 @@
                             <div class="col-3">
                                 <img :src="'/images/avatar.png'" class="img-fluid" alt="avatar">
                             </div>
-                            <div class="user-text py-3 col-9">
+                            <div class="user-text col-9">
                                 <div class="fw-bold mb-2">Hyun-Kyung Yi</div>
                                 <div class="text-secondary">
                                     A simple, lightweight, yet powerful application
@@ -158,7 +158,7 @@
                             <div class="col-3">
                                 <img :src="'/images/avatar.png'" class="img-fluid" alt="avatar">
                             </div>
-                            <div class="user-text py-3 col-9">
+                            <div class="user-text col-9">
                                 <div class="fw-bold mb-2">David Lafond</div>
                                 <div class="text-secondary">
                                     My portal to the web. I tried many bookmark
@@ -171,14 +171,14 @@
                 <div class="item">
                     <div class="p-3">
                         <div class="bg-light d-flex align-items-center justify-content-start p-3">
-                            <div class="col-2">
+                            <div class="col-3">
                                 <img :src="'/images/avatar.png'" class="img-fluid" alt="avatar">
                             </div>
-                            <div class="user-text py-3 col-10">
+                            <div class="user-text col-9">
                                 <div class="fw-bold mb-2">Anonymous</div>
                                 <div class="text-secondary">
                                     I love the sleek and simple design! The focus
-                                    lies on what's important: managing bookmarks.
+                                    lies on managing bookmarks.
                                 </div>
                             </div>
                         </div>

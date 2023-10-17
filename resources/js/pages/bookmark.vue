@@ -36,20 +36,18 @@
 
                     <!-- card header start -->
                     <div class="card-header border-bottom">
-                        <div class="me-3 col-md-6">
-                            <div class="me-3 h4">
-                                <i class="bi bi-cloud-fill me-2"></i>
-                                All Bookmark
-                            </div>
-                            <span class="d-flex align-items-center ms-3" v-if="tableData.length > 0 && loading === false && selected.length > 0">
-                                <a href="javascript:void(0)" class="select-icon" @click="deleteModal(1)">
-                                    <i class="bi bi-trash2"></i>
-                                </a>
-                                <a href="javascript:void(0)" class="ms-2 select-icon" v-if="selected.length === 1" @click="openEditModal">
-                                    <i class="bi bi-pencil-square"></i>
-                                </a>
-                            </span>
+                        <div class="me-3 h4">
+                            <i class="bi bi-cloud-fill me-2"></i>
+                            All Bookmark
                         </div>
+                        <span class="d-flex align-items-center" v-if="tableData.length > 0 && loading === false && selected.length > 0">
+                            <a href="javascript:void(0)" class="select-icon" @click="deleteModal(1)">
+                                <i class="bi bi-trash2"></i>
+                            </a>
+                            <a href="javascript:void(0)" class="ms-2 select-icon" v-if="selected.length === 1" @click="openEditModal">
+                                <i class="bi bi-pencil-square"></i>
+                            </a>
+                        </span>
                     </div>
                     <!-- card header end -->
 
@@ -342,7 +340,7 @@
 
             openEditModal() {
                 this.getSingle();
-                const myModal = new bootstrap.Modal("#manageModal", {keyboard: false});
+                const myModal = new bootstrap.Modal("#manageModal", {keyboard: false, backdrop: 'static'});
                 myModal.show();
             },
 
