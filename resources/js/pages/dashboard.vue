@@ -196,12 +196,12 @@
                 bookmarkLoading: false,
                 latestBookmarkTableData: [],
                 bookmarkFormData: {
-                    limit: 30,
+                    limit: 10,
                     page: 1
                 },
                 tableData: [],
                 formData: {
-                    limit: 30,
+                    limit: 10,
                     page: 1
                 },
             }
