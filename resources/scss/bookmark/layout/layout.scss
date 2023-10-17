@@ -161,6 +161,7 @@
                     visibility: hidden;
                     opacity: 0;
                     transition: 0.3s all ease-in-out;
+                    z-index: 900;
 
                     &.active{
                         top: 50px;

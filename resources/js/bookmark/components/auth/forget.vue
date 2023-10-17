@@ -8,7 +8,7 @@
         <div class="container-fluid">
             <div class="row justify-content-around align-items-center vh-100">
                 <div class="col-12 col-lg-5 py-3 d-none d-lg-block">
-                    <img :src="'/images/authentication.png'" class="img-fluid rounded-5" alt="authentication background image">
+                    <img :src="'/images/access_account.png'" class="img-fluid rounded-5" alt="authentication background image">
                 </div>
                 <div class="col-12 col-sm-10 col-md-8 col-lg-4 my-5">
                     <form @submit.prevent="forget" class="px-5 py-4 border shadow rounded-5 bg-white" v-if="forgetType === 1">
