@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Services;
 
 use App\Models\Bookmark;
-use Carbon\Carbon;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
@@ -39,7 +38,6 @@ class BookmarkService extends BaseController
     {
         try {
             $user_id = Auth::id();
-            $date = $request->date ?? 'all';
             $limit = $request->limit ?? 10;
             $keyword = $request->q ?? '';
             $results = Bookmark::where('user_id', $user_id)->orderBy('id', 'desc');

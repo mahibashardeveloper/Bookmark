@@ -216,7 +216,6 @@
 
             list() {
                 this.loading = true;
-                this.formData.page = this.current_page;
                 apiService.POST(apiRoutes.profile_userLog, this.formData, (res) => {
                     this.loading = false;
                     this.selected = [];
@@ -228,7 +227,6 @@
 
             bookmarkList() {
                 this.bookmarkLoading = true;
-                this.bookmarkFormData.page = this.bookmark_current_page;
                 apiService.POST(apiRoutes.bookmarkList, this.bookmarkFormData, (res) => {
                     this.bookmarkLoading = false;
                     if (res.status === 200) {
