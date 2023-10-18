@@ -16,7 +16,7 @@ class UserLogs extends Model
 
     public function getCreatedAtFormattedAttribute(){
         if(isset($this->attributes['created_at'])){
-            return date('F j, Y, g:i a', strtotime($this->attributes['created_at']) - 6*3600);
+            return date('F j, Y, g:i a', strtotime($this->attributes['created_at']));
         }else{
             return null;
         }

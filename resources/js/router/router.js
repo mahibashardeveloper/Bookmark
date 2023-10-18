@@ -9,6 +9,7 @@ import Forget from "../pages/forget.vue";
 
 import Dashboard from "../pages/dashboard.vue";
 import Bookmark from "../pages/bookmark.vue";
+import profile from "../pages/profile.vue";
 
 const ROOT_URL = "/";
 const PORTAL_URL = "/portal/";
@@ -26,6 +27,7 @@ const routes = [
         children: [
             {path: PORTAL_URL + "dashboard", name: "dashboard", component: Dashboard, meta: { title: "dashboard" }},
             {path: PORTAL_URL + "bookmark", name: "bookmark", component: Bookmark, meta: { title: "bookmark" }},
+            {path: PORTAL_URL + "profile", name: "profile", component: profile, meta: {title: "profile"}},
         ],
     },
 ];

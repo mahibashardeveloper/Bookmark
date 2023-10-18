@@ -1,0 +1,33 @@
+.btn-theme{
+    background-color: var(--themeColor) !important;
+    transition: 0.3s all ease-in-out;
+    color: var(--white) !important;
+    padding: 10px 20px;
+
+    @media screen and (max-width: 991px) {
+        padding: 5px 10px;
+    }
+
+    &:hover{
+        background-color: var(--themeDarkColor) !important;
+    }
+
+}
+
+.btn-outline-theme{
+    border: 1px solid var(--themeOutlineColor) !important;
+    transition: 0.3s all ease-in-out;
+    color: var(--themeOutlineColor) !important;
+    padding: 10px 20px;
+    background-color: var(--white) !important;
+
+    @media screen and (max-width: 991px) {
+        padding: 5px 10px;
+    }
+
+    &:hover{
+        background-color: var(--themeOutlineColor) !important;
+        color: var(--white) !important;
+    }
+
+}

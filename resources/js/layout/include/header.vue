@@ -1,6 +1,6 @@
 <template>
 
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg bg-white py-4">
         <div class="container">
 
             <!-- home route start -->
@@ -59,6 +59,12 @@
                             Profile
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end">
+
+                            <li>
+                                <router-link class="dropdown-item" :to="{name: 'profile'}">
+                                    {{profile_data.full_name}}
+                                </router-link>
+                            </li>
 
                             <!-- logout action start -->
                             <li>

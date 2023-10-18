@@ -194,7 +194,7 @@
     <div class="modal fade" id="manageModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
-                <form>
+                <form @submit.prevent="manageBookmark">
                     <div class="modal-header">
                         <h1 class="modal-title fs-5" id="exampleModalLabel">
                             <span v-if="bookmarkParam.id === ''"> Create </span>
@@ -219,7 +219,7 @@
                         <button type="button" class="btn btn-secondary" @click="manageModal(2,'')">
                             Cancel
                         </button>
-                        <button type="button" class="btn btn-dark" @click="manageBookmark">
+                        <button type="submit" class="btn btn-dark">
                             <span v-if="createLoading === false">
                                 <span v-if="bookmarkParam.id === ''">
                                     Save
@@ -385,7 +385,7 @@
                     if (data !== null) {
                         this.getSingle(data);
                     }
-                    const myModal = new bootstrap.Modal("#manageModal", {keyboard: false, backdrop: 'static'});
+                    const myModal = new bootstrap.Modal("#manageModal");
                     myModal.show();
                 } else {
                     this.selected = [];

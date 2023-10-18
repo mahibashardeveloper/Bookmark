@@ -16,7 +16,7 @@ class BookmarkService extends BaseController
                 $request->all(),
                 [
                     'bookmark_name' => 'required',
-                    'bookmark_url' => 'required',
+                    'bookmark_url' => 'required|url',
                 ]
             );
             if ($validator->fails()) {
