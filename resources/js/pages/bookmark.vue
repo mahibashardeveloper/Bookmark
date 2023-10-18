@@ -1,53 +1,56 @@
 <template>
 
-    <div class="h1 text-center py-5">
-        Bookmark
-        <div class="d-flex justify-content-center">
-            <div class="col-7 col-lg-4">
-                <hr>
-            </div>
+    <div class="container-fluid">
+        <div class="h3 text-center py-3 bg-white shadow rounded-top-4">
+            Bookmark
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="py-3 text-end">
+            <a href="javascript:void(0)" class="btn btn-outline-theme" @click="manageModal(1, null)">
+                <i class="bi bi-plus-lg me-2"></i> Add
+            </a>
         </div>
     </div>
 
     <div class="pb-5">
-        <div class="container-fluid">
-            <div class="d-flex flex-wrap justify-content-between px-4">
-                <div class="col-12 col-md-9 col-lg-6 mt-4">
-                    <div class="position-relative">
-                        <input type="text" placeholder="Search Here" class="form-control py-2 ps-5 shadow-none border-secondary-subtle" v-model="formData.q" @keyup="SearchData">
-                        <div class="position-absolute translate-middle-y top-50 start-0 ps-3">
-                            <i class="bi bi-search"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 text-end mt-4">
-                    <a href="javascript:void(0)" class="btn btn-dark px-4 py-2" @click="manageModal(1, null)">
-                        <i class="bi bi-star-fill me-2"></i> Add
-                    </a>
-                </div>
-            </div>
-        </div>
 
-        <div class="container-fluid mt-4">
-            <div class="px-4">
+        <div class="container-fluid">
 
                 <!-- card content start -->
-                <div class="card-content">
+                <div class="card-content shadow">
 
                     <!-- card header start -->
                     <div class="card-header border-bottom">
-                        <div class="me-3 h4">
-                            <i class="bi bi-cloud-fill me-2"></i>
-                            All Bookmark
+                        <div class="row align-items-center">
+
+                            <div class="col-12 col-md-6">
+                                <div class="d-flex align-items-center">
+                                    <div class="card-title me-3">
+                                        <i class="bi bi-cloud-fill me-2"></i>
+                                        All Bookmark
+                                    </div>
+                                    <span class="d-flex align-items-center" v-if="tableData.length > 0 && loading === false && selected.length > 0">
+                                        <a href="javascript:void(0)" class="select-icon" @click="deleteModal(1)">
+                                            <i class="bi bi-trash2"></i>
+                                        </a>
+                                        <a href="javascript:void(0)" class="ms-2 select-icon" v-if="selected.length === 1" @click="openEditModal">
+                                            <i class="bi bi-pencil-square"></i>
+                                        </a>
+                                    </span>
+                                </div>
+                                </div>
+
+                            <div class="col-12 col-md-6 form-top-marge">
+                                <div class="position-relative">
+                                    <input type="text" placeholder="Search Here" class="form-control py-2 ps-5 shadow-none border-secondary-subtle" v-model="formData.q" @keyup="SearchData">
+                                    <div class="position-absolute translate-middle-y top-50 start-0 ps-3">
+                                        <i class="bi bi-search"></i>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <span class="d-flex align-items-center" v-if="tableData.length > 0 && loading === false && selected.length > 0">
-                            <a href="javascript:void(0)" class="select-icon" @click="deleteModal(1)">
-                                <i class="bi bi-trash2"></i>
-                            </a>
-                            <a href="javascript:void(0)" class="ms-2 select-icon" v-if="selected.length === 1" @click="openEditModal">
-                                <i class="bi bi-pencil-square"></i>
-                            </a>
-                        </span>
                     </div>
                     <!-- card header end -->
 
@@ -92,30 +95,23 @@
                                         Name
                                     </div>
                                 </div>
-                                <div class="col-12 col-sm-4 d-none d-sm-block">
-                                    Url
-                                </div>
                             </div>
                             <!-- card topic end -->
 
                             <!-- card list start -->
                             <div class="row card-list" v-for="(each) in tableData">
-                                <div class="col-12 col-sm-4 text-truncate">
+                                <div class="col-12 col-sm-6 text-truncate">
                                     <div class="marge-title py-3">
                                         Name
                                     </div>
                                     <div class="d-flex align-items-center">
                                         <input type="checkbox" class="form-check-input me-3 d-none d-sm-block" :checked="CheckIfChecked(each.id)" @change="toggleCheck($event,each.id)">
-                                        {{each.bookmark_name}}
+                                        <a :href="each.bookmark_url" target="_blank" class="text-dark text-decoration-none">
+                                            {{each.bookmark_name}}
+                                        </a>
                                     </div>
                                 </div>
-                                <div class="col-12 col-sm-4 text-truncate">
-                                    <div class="marge-title py-3">
-                                        Url
-                                    </div>
-                                    <a :href="each.bookmark_url" target="_blank" class="text-dark text-decoration-none"> {{each.bookmark_url}} </a>
-                                </div>
-                                <div class="col-12 col-sm-4 text-sm-end mt-3 mt-sm-0">
+                                <div class="col-12 col-sm-6 text-sm-end mt-3 mt-sm-0">
                                     <a href="javascript:void(0)" class="text-decoration-none text-secondary me-3" @click="manageModal(1, each.id)">
                                         <i class="bi bi-pencil-square"></i>
                                     </a>
@@ -186,7 +182,6 @@
                 </div>
                 <!-- card content end -->
 
-            </div>
         </div>
     </div>
 
@@ -291,7 +286,6 @@
                 },
                 tableData: [],
                 formData: {
-                    date: 'all',
                     limit: 10,
                     page: 1
                 },

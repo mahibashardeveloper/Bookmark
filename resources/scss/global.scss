@@ -1,19 +1,54 @@
 .card-content {
     width: 100%;
     background-color: var(--white);
-    padding: 20px;
-    border-radius: 15px;
+    padding-bottom: 20px;
     border: 1px solid var(--light);
+
+    ::-webkit-scrollbar {
+        background-color: transparent;
+        width: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: var(--grey);
+        height: 20px !important;
+    }
 
     .card-header {
         width: 100%;
         padding: 15px;
-        display: flex;
-        align-items: center;
-        justify-content: start;
+
+        &.start{
+            display: flex;
+            align-items: center;
+            justify-content: start;
+        }
+
+        &.between{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .icon-bottom{
+            @media screen and (max-width: 576px) {
+                margin-top: 10px;
+            }
+        }
+
+        .form-top-marge{
+            @media screen and (max-width: 756px) {
+                margin-top: 20px;
+            }
+        }
 
         @media screen and (max-width: 676px) {
             flex-wrap: wrap;
+        }
+
+        .card-title{
+            font-size: 20px;
+            font-weight: bold;
         }
 
         .select-icon {
@@ -37,6 +72,8 @@
     .card-body {
         width: 100%;
         height: calc(100vh - 400px);
+        overflow-y: scroll;
+        overflow-x: hidden;
 
         @media screen and (max-width: 600px) {
             height: calc(100vh - 450px);
@@ -74,6 +111,7 @@
             display: none;
 
             @media screen and (max-width: 575px) {
+                font-weight: bold;
                 display: block;
             }
 

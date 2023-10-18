@@ -1,46 +1,95 @@
 <template>
-    <div class="d-flex justify-content-center align-items-center profile">
 
-        <!-- profile card start -->
-        <div class="profile-card col-12 col-sm-8 col-md-6 col-lg-4 border bg-secondary-subtle shadow">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4">
 
-            <!-- profile card header start -->
-            <div class="profile-card-header">
-                <a href="javascript:void(0)" class="edit-profile" @click="openEditProfileModal">
-                    <i class="bi bi-pencil-square"></i>
-                </a>
-                <a href="javascript:void(0)" class="edit-profile ms-3" @click="openEditPasswordModal">
-                    <i class="bi bi-shield"></i>
-                </a>
-            </div>
-            <!-- profile card start end -->
+                <div class="profile shadow">
 
-            <!-- profile card body start -->
-            <div class="profile-card-body">
-                <div class="d-flex justify-content-center">
-                    <div class="mb-3">
-                        <img class="img-fluid profile-avatar" v-if="!profile_data.avatar" :src="'https://ui-avatars.com/api/?name='+profile_data.full_name" alt="profile-dummy">
-                        <img class="img-fluid profile-avatar" v-else :src="profile_data.media && profile_data.media.full_file_path" alt="profile">
+                    <!-- profile card start -->
+                    <div class="profile-card">
+
+                        <!-- profile card header start -->
+                        <div class="profile-card-header">
+                            <a href="javascript:void(0)" class="edit-profile" @click="openEditProfileModal">
+                                <i class="bi bi-pencil-square"></i>
+                            </a>
+                            <a href="javascript:void(0)" class="edit-profile ms-3" @click="openEditPasswordModal">
+                                <i class="bi bi-shield"></i>
+                            </a>
+                        </div>
+                        <!-- profile card start end -->
+
+                        <!-- profile card body start -->
+                        <div class="profile-card-body">
+                            <div class="d-flex justify-content-center">
+                                <div class="mb-3">
+                                    <img class="img-fluid profile-avatar" v-if="!profile_data.avatar" :src="'https://ui-avatars.com/api/?name='+profile_data.full_name" alt="profile-dummy">
+                                    <img class="img-fluid profile-avatar" v-else :src="profile_data.media && profile_data.media.full_file_path" alt="profile">
+                                </div>
+                            </div>
+                            <div class="mb-3 fw-bold">
+                                Full Name
+                            </div>
+                            <div class="mb-3">
+                                {{profile_data.full_name}}
+                            </div>
+                            <div class="mb-3 fw-bold">
+                                Email
+                            </div>
+                            <div class="mb-3">
+                                {{profile_data.email}}
+                            </div>
+                        </div>
+                        <!-- profile card body end -->
+
                     </div>
+                    <!-- profile card end -->
+
                 </div>
-                <div class="mb-3 fw-bold">
-                    Full Name
+
+            </div>
+            <div class="col-md-8">
+                <div class="bg-white shadow w-100 p-3" v-if="tab === 1">
+
                 </div>
-                <div class="mb-3">
-                    {{profile_data.full_name}}
-                </div>
-                <div class="mb-3 fw-bold">
-                    Email
-                </div>
-                <div class="mb-3">
-                    {{profile_data.email}}
+                <div class="bg-white shadow w-100 p-3" v-if="tab === 2">
+                    <form @submit.prevent="updatePassword">
+
+                        <!-- new password start -->
+                        <div class="mb-3">
+                            <label for="password" class="form-label">
+                                New Password
+                            </label>
+                            <input type="password" id="password" name="password" class="form-control shadow-none" v-model="passwordParam.password">
+                            <div class="error-text" v-if="error != null && error.password !== undefined" v-text="error.password[0]"></div>
+                        </div>
+                        <!-- new password end -->
+
+                        <!-- confirm password start -->
+                        <div class="mb-3">
+                            <label for="password_confirmation" class="form-label">
+                                Confirm Password
+                            </label>
+                            <input type="password" id="password_confirmation" name="password_confirmation" class="form-control shadow-none" v-model="passwordParam.password_confirmation">
+                            <div class="error-text" v-if="error != null && error.password_confirmation !== undefined" v-text="error.password_confirmation[0]"></div>
+                        </div>
+                        <!-- confirm password end -->
+
+                        <div class="mb-3">
+
+                            <!-- buttons start -->
+                            <button type="submit" class="btn btn-dark px-5">
+                                <span v-if="updateProfileLoading === false"> Edit </span>
+                                <span v-if="updateProfileLoading === true"> Loading... </span>
+                            </button>
+                            <!-- buttons end -->
+
+                        </div>
+                    </form>
                 </div>
             </div>
-            <!-- profile card body end -->
-
         </div>
-        <!-- profile card end -->
-
     </div>
 
     <!-- edit profile modal start -->
@@ -96,7 +145,6 @@
                 <div class="modal-footer border-0">
 
                     <!-- buttons start -->
-                    <button type="button" class="btn btn-secondary" @click="closeEditProfileModal"> Close </button>
                     <button type="button" class="btn btn-dark" @click="updateProfile">
                         <span v-if="updateProfileLoading === false">Edit</span>
                         <span v-if="updateProfileLoading === true">Loading...</span>
@@ -182,6 +230,7 @@ export default {
                 password: '',
                 password_confirmation: ''
             },
+            tab: 1,
         }
     },
 
@@ -221,8 +270,7 @@ export default {
         },
 
         openEditPasswordModal() {
-            const modal = new bootstrap.Modal("#editPasswordModal", {keyboard: false, backdrop: 'static'});
-            modal.show();
+            this.tab = 2;
             this.edit = true;
             this.editParam = JSON.parse(JSON.stringify(this.profile_data));
         },

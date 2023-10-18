@@ -197,7 +197,7 @@ class UserServices extends BaseController
     {
         try {
             $user_id = Auth::id();
-            $limit = $request->limit ?? 10000;
+            $limit = $request->limit ?? 10;
             $results = UserLogs::where('user_id', $user_id)->orderBy('id', 'desc');
             $paginatedData = $results->paginate($limit);
             return ['status' => 200, 'data' => $paginatedData];

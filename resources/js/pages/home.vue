@@ -22,7 +22,7 @@
                     </div>
                 </div>
                 <div class="col-12 col-md-6 col-lg-5 py-5 d-flex justify-content-center">
-                    <img :src="'/images/background-image.png'" class="img-fluid" alt="background-image">
+                    <img :src="'/images/bookmark.png'" class="img-fluid" alt="background-image">
                 </div>
             </div>
         </div>
@@ -143,7 +143,7 @@
                             <img :src="'/images/bg-dots.svg'" class="img-fluid w-100" alt="bg-dots">
                         </div>
                         <a href="javascript:void(0)" class="btn btn-theme">
-                            Add & Install Extension
+                            Add & Install
                         </a>
                     </div>
                 </div>
@@ -157,7 +157,7 @@
                             <img :src="'/images/bg-dots.svg'" class="img-fluid w-100" alt="bg-dots">
                         </div>
                         <a href="javascript:void(0)" class="btn btn-theme">
-                            Add & Install Extension
+                            Add & Install
                         </a>
                     </div>
                 </div>
@@ -171,7 +171,7 @@
                             <img :src="'/images/bg-dots.svg'" class="img-fluid w-100" alt="bg-dots">
                         </div>
                         <a href="javascript:void(0)" class="btn btn-theme">
-                            Add & Install Extension
+                            Add & Install
                         </a>
                     </div>
                 </div>
@@ -197,7 +197,7 @@
                     <div class="accordion" id="accordionExample">
                         <div class="accordion-item">
                             <h2 class="accordion-header">
-                                <button class="accordion-button shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                <button class="accordion-button fw-bold shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                     What is the purpose of a bookmark?
                                 </button>
                             </h2>
@@ -209,7 +209,7 @@
                         </div>
                         <div class="accordion-item">
                             <h2 class="accordion-header">
-                                <button class="accordion-button shadow-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                <button class="accordion-button fw-bold shadow-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                                     What are some different types of bookmarks?
                                 </button>
                             </h2>
@@ -231,7 +231,7 @@
                         </div>
                         <div class="accordion-item">
                             <h2 class="accordion-header">
-                                <button class="accordion-button shadow-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                <button class="accordion-button fw-bold shadow-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                                     What are some creative ways to make a bookmark?
                                 </button>
                             </h2>

@@ -1,11 +1,8 @@
 <template>
 
-    <div class="h1 text-center py-5">
-        Dashboard
-        <div class="d-flex justify-content-center">
-            <div class="col-7 col-lg-4">
-                <hr>
-            </div>
+    <div class="container-fluid">
+        <div class="h3 text-center py-3 bg-white shadow rounded-top-4">
+            Dashboard
         </div>
     </div>
 
@@ -13,16 +10,18 @@
         <div class="row">
 
             <div class="col-lg-6 pb-5">
-                <div class="px-4">
 
                     <!-- card content start -->
-                    <div class="card-content">
+                    <div class="card-content shadow">
 
                         <!-- card header start -->
-                        <div class="card-header border-bottom">
-                            <div class="me-3 h4">
-                                User Access time
+                        <div class="card-header border-bottom between">
+                            <div class="me-3 card-title">
+                                Login History
                             </div>
+                            <router-link class="btn btn-dark py-0 px-3 icon-bottom rounded-0" :to="{name: 'loginHistory'}">
+                                view more
+                            </router-link>
                         </div>
                         <!-- card header end -->
 
@@ -94,20 +93,21 @@
                     </div>
                     <!-- card content end -->
 
-                </div>
             </div>
 
             <div class="col-lg-6 pb-5">
-                <div class="px-4">
 
                     <!-- card content start -->
-                    <div class="card-content">
-                        <div class="card-header border-bottom">
+                    <div class="card-content shadow">
+                        <div class="card-header border-bottom between">
                             <div class="me-3 col-md-6">
-                                <div class="me-3 h4">
+                                <div class="me-3 card-title">
                                     Latest Bookmark
                                 </div>
                             </div>
+                            <router-link :to="{name: 'bookmark'}" class="btn btn-dark py-0 px-3 icon-bottom rounded-0">
+                                view more
+                            </router-link>
                         </div>
                         <div class="card-body">
 
@@ -134,7 +134,6 @@
                                         <i class="bi bi-exclamation-circle fs-1"></i>
                                     </div>
                                     <div class="mb-3">No Data Founded</div>
-                                    <span>Create New Bookmark to click "Add"</span>
                                 </div>
                             </div>
                             <!-- no data end -->
@@ -177,7 +176,6 @@
                     </div>
                     <!-- card content end -->
 
-                </div>
             </div>
 
         </div>

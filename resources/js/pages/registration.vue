@@ -112,7 +112,7 @@
                 apiService.POST(apiRoutes.register, this.registerParam, (res) => {
                     this.createLoading = false;
                     if(res.status === 200){
-                        window.location.reload();
+                        this.$router.push({name: 'login'});
                     }else{
                         this.error = res.errors;
                     }

@@ -56,13 +56,19 @@
 
                         <!-- profile dropdown-menu start -->
                         <a class="nav-link dropdown-toggle" href="javascript:void(0)" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Profile
+                            {{profile_data.full_name}}
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end">
 
                             <li>
                                 <router-link class="dropdown-item" :to="{name: 'profile'}">
-                                    {{profile_data.full_name}}
+                                    Profile
+                                </router-link>
+                            </li>
+
+                            <li>
+                                <router-link class="dropdown-item" :to="{name: 'loginHistory'}">
+                                    login history
                                 </router-link>
                             </li>
 
