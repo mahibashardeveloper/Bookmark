@@ -1,24 +1,13 @@
 <template>
 
-    <div class="container-fluid">
+    <div class="container-fluid profile">
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-4 h-100">
 
-                <div class="profile shadow">
+                <div class="shadow bg-white h-100 rounded-4">
 
                     <!-- profile card start -->
                     <div class="profile-card">
-
-                        <!-- profile card header start -->
-                        <div class="profile-card-header">
-                            <a href="javascript:void(0)" class="edit-profile" @click="openEditProfileModal">
-                                <i class="bi bi-pencil-square"></i>
-                            </a>
-                            <a href="javascript:void(0)" class="edit-profile ms-3" @click="openEditPasswordModal">
-                                <i class="bi bi-shield"></i>
-                            </a>
-                        </div>
-                        <!-- profile card start end -->
 
                         <!-- profile card body start -->
                         <div class="profile-card-body">
@@ -49,162 +38,117 @@
                 </div>
 
             </div>
-            <div class="col-md-8">
-                <div class="bg-white shadow w-100 p-3" v-if="tab === 1">
+            <div class="col-md-8 h-100">
+
+                <div class="d-flex align-items-center bg-white w-100 shadow p-3 mb-3 rounded-4">
+
+                    <a href="javascript:void(0)" class="btn btn-theme" @click="openEditPasswordModal">
+                        Change Password
+                    </a>
+
+                    <a href="javascript:void(0)" class="btn btn-theme ms-3" @click="openEditProfileModal">
+                        Edit Profile
+                    </a>
 
                 </div>
-                <div class="bg-white shadow w-100 p-3" v-if="tab === 2">
-                    <form @submit.prevent="updatePassword">
 
-                        <!-- new password start -->
-                        <div class="mb-3">
-                            <label for="password" class="form-label">
-                                New Password
-                            </label>
-                            <input type="password" id="password" name="password" class="form-control shadow-none" v-model="passwordParam.password">
-                            <div class="error-text" v-if="error != null && error.password !== undefined" v-text="error.password[0]"></div>
-                        </div>
-                        <!-- new password end -->
+                <div class="profile-card w-100 bg-white rounded-4">
 
-                        <!-- confirm password start -->
-                        <div class="mb-3">
-                            <label for="password_confirmation" class="form-label">
-                                Confirm Password
-                            </label>
-                            <input type="password" id="password_confirmation" name="password_confirmation" class="form-control shadow-none" v-model="passwordParam.password_confirmation">
-                            <div class="error-text" v-if="error != null && error.password_confirmation !== undefined" v-text="error.password_confirmation[0]"></div>
-                        </div>
-                        <!-- confirm password end -->
+                    <div v-if="tab === 2">
 
-                        <div class="mb-3">
+                        <div class="h4 fw-bold mb-4">Edit Profile</div>
+
+                        <form @submit.prevent="updateProfile">
+
+                            <!-- upload image start -->
+                            <div class="mb-3 profile-card-body d-flex justify-content-center">
+                                <img class="img-fluid profile-avatar overflow-hidden" v-if="editParam.avatar !== null" :src="editParam.avatarFilePath" alt="profile">
+                            </div>
+                            <div class="text-center">
+                                <label for="file-upload" class="btn btn-outline-theme mb-3">
+                                     <i class="bi bi-repeat"></i> Change Image
+                                    <input type="file" class="d-none" id="file-upload" @change="attachFile($event)">
+                                </label>
+                            </div>
+                            <!-- upload image end -->
+
+                            <!-- full name start -->
+                            <div class="mb-3">
+                                <label for="first_name" class="form-label">
+                                    Full Name
+                                </label>
+                                <input type="text" id="first_name" name="full_name" class="form-control" v-model="editParam.full_name">
+                                <div class="error-text" v-if="error != null && error.full_name !== undefined" v-text="error.full_name[0]"></div>
+                            </div>
+                            <!-- full name end -->
+
+                            <!-- email start -->
+                            <div class="mb-3">
+                                <label for="email" class="form-label">
+                                    Email
+                                </label>
+                                <input type="email" id="email" name="email" class="form-control" v-model="editParam.email">
+                                <div class="error-text" v-if="error != null && error.email !== undefined" v-text="error.email[0]"></div>
+                            </div>
+                            <!-- email end -->
 
                             <!-- buttons start -->
-                            <button type="submit" class="btn btn-dark px-5">
-                                <span v-if="updateProfileLoading === false"> Edit </span>
+                            <button type="submit" class="btn btn-dark px-5 btn-size-theme">
+                                <span v-if="updateProfileLoading === false"> Update </span>
                                 <span v-if="updateProfileLoading === true"> Loading... </span>
                             </button>
                             <!-- buttons end -->
 
-                        </div>
-                    </form>
+                        </form>
+
+                    </div>
+
+                    <div v-if="tab === 1">
+
+                        <div class="h4 fw-bold mb-4">Change Password</div>
+
+                        <form @submit.prevent="updatePassword">
+
+                            <!-- new password start -->
+                            <div class="mb-3">
+                                <label for="password" class="form-label">
+                                    New Password
+                                </label>
+                                <input type="password" id="password" name="password" class="form-control shadow-none" v-model="passwordParam.password">
+                                <div class="error-text" v-if="error != null && error.password !== undefined" v-text="error.password[0]"></div>
+                            </div>
+                            <!-- new password end -->
+
+                            <!-- confirm password start -->
+                            <div class="mb-3">
+                                <label for="password_confirmation" class="form-label">
+                                    Confirm Password
+                                </label>
+                                <input type="password" id="password_confirmation" name="password_confirmation" class="form-control shadow-none" v-model="passwordParam.password_confirmation">
+                                <div class="error-text" v-if="error != null && error.password_confirmation !== undefined" v-text="error.password_confirmation[0]"></div>
+                            </div>
+                            <!-- confirm password end -->
+
+                            <div class="mb-3">
+
+                                <!-- buttons start -->
+                                <button type="submit" class="btn btn-dark px-5 btn-size-theme">
+                                    <span v-if="updateProfileLoading === false"> Update </span>
+                                    <span v-if="updateProfileLoading === true"> Loading... </span>
+                                </button>
+                                <!-- buttons end -->
+
+                            </div>
+
+                        </form>
+
+                    </div>
+
                 </div>
+
             </div>
         </div>
     </div>
-
-    <!-- edit profile modal start -->
-    <div class="modal fade" id="editProfileModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content p-3">
-                <div class="modal-header border-0">
-                    <h1 class="modal-title fw-bold fs-5" id="exampleModalLabel"> Edit Profile </h1>
-                    <button type="button" class="btn-close" @click="closeEditProfileModal"></button>
-                </div>
-                <div class="modal-body">
-
-                    <!-- upload image start -->
-                    <div class="mb-3">
-                        <div class="d-flex justify-content-center align-items-center">
-                            <label for="file-upload">
-                                <input type="file" class="d-none" id="file-upload" @change="attachFile($event)">
-                                <div v-if="editParam.avatar === null" class="modal-avatar cursor-pointer">
-                                    <div class="text-center">
-                                        <div class="mb-2">
-                                            <i class="bi bi-card-image"></i>
-                                        </div>
-                                        Upload Image
-                                    </div>
-                                </div>
-                                <img class="img-fluid modal-avatar" v-if="editParam.avatar !== null" :src="editParam.avatarFilePath" alt="profile">
-                            </label>
-                        </div>
-                    </div>
-                    <!-- upload image end -->
-
-                    <!-- full name start -->
-                    <div class="mb-3">
-                        <label for="first_name" class="form-label">
-                            Full Name
-                        </label>
-                        <input type="text" id="first_name" name="full_name" class="form-control" v-model="editParam.full_name">
-                        <div class="error-text" v-if="error != null && error.full_name !== undefined" v-text="error.full_name[0]"></div>
-                    </div>
-                    <!-- full name end -->
-
-                    <!-- email start -->
-                    <div class="mb-3">
-                        <label for="email" class="form-label">
-                            Email
-                        </label>
-                        <input type="email" id="email" name="email" class="form-control" v-model="editParam.email">
-                        <div class="error-text" v-if="error != null && error.email !== undefined" v-text="error.email[0]"></div>
-                    </div>
-                    <!-- email end -->
-
-                </div>
-                <div class="modal-footer border-0">
-
-                    <!-- buttons start -->
-                    <button type="button" class="btn btn-dark" @click="updateProfile">
-                        <span v-if="updateProfileLoading === false">Edit</span>
-                        <span v-if="updateProfileLoading === true">Loading...</span>
-                    </button>
-                    <!-- buttons end -->
-
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- edit profile modal end -->
-
-    <!-- change password modal start -->
-    <div class="modal fade" id="editPasswordModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content p-3">
-                <div class="modal-header border-0">
-                    <h1 class="modal-title fw-bold fs-5" id="exampleModalLabel"> Edit Password </h1>
-                    <button type="button" class="btn-close" @click="closeEditPasswordModal"></button>
-                </div>
-                <div class="modal-body">
-
-                    <!-- new password start -->
-                    <div class="mb-3">
-                        <label for="password" class="form-label">
-                            New Password
-                        </label>
-                        <input type="password" id="password" name="password" class="form-control" v-model="passwordParam.password">
-                        <div class="error-text" v-if="error != null && error.password !== undefined" v-text="error.password[0]"></div>
-                    </div>
-                    <!-- new password end -->
-
-                    <!-- confirm password start -->
-                    <div class="mb-3">
-                        <label for="password_confirmation" class="form-label">
-                            Confirm Password
-                        </label>
-                        <input type="password" id="password_confirmation" name="password_confirmation" class="form-control" v-model="passwordParam.password_confirmation">
-                        <div class="error-text" v-if="error != null && error.password_confirmation !== undefined" v-text="error.password_confirmation[0]"></div>
-                    </div>
-                    <!-- confirm password end -->
-
-                </div>
-                <div class="modal-footer border-0">
-
-                    <!-- buttons start -->
-                    <button type="button" class="btn btn-secondary" @click="closeEditPasswordModal">
-                        Close
-                    </button>
-                    <button type="submit" class="btn btn-dark" @click="updatePassword">
-                        <span v-if="updateProfileLoading === false"> Edit </span>
-                        <span v-if="updateProfileLoading === true"> Loading... </span>
-                    </button>
-                    <!-- buttons end -->
-
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- change password modal end -->
 
 </template>
 
@@ -212,6 +156,7 @@
 
 import apiServices from "../services/apiServices.js";
 import apiRoutes from "../services/apiRoutes.js";
+
 export default {
 
     data() {
@@ -254,34 +199,16 @@ export default {
         },
 
         openEditProfileModal() {
-            const modal = new bootstrap.Modal("#editProfileModal", {keyboard: false, backdrop: 'static'});
-            modal.show();
+            this.tab = 2;
             this.edit = true;
             this.editParam = JSON.parse(JSON.stringify(this.profile_data));
             this.editParam.avatarFilePath = this.editParam.media != null ? this.editParam.media.full_file_path : null
         },
 
-        closeEditProfileModal() {
-            this.edit = false;
-            this.error = null;
-            let myModalEl = document.getElementById('editProfileModal');
-            let modal = bootstrap.Modal.getInstance(myModalEl);
-            modal.hide();
-        },
-
         openEditPasswordModal() {
-            this.tab = 2;
+            this.tab = 1;
             this.edit = true;
             this.editParam = JSON.parse(JSON.stringify(this.profile_data));
-        },
-
-        closeEditPasswordModal() {
-            this.edit = false;
-            this.passwordParam = {password: "", password_confirmation: ""};
-            this.error = null;
-            let myModalEl = document.getElementById('editPasswordModal');
-            let modal = bootstrap.Modal.getInstance(myModalEl);
-            modal.hide();
         },
 
         getProfile() {

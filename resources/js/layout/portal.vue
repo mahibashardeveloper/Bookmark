@@ -2,8 +2,10 @@
 
     <Header/>
 
-    <div class="container py-5">
-        <router-view/>
+    <div class="portal-background" style="background-image: url('/images/inside-background.webp')">
+        <div class="container py-5">
+            <router-view/>
+        </div>
     </div>
 
     <Footer/>

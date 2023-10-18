@@ -4,33 +4,6 @@
     .profile-card {
         padding: 20px;
 
-        .profile-card-header {
-            padding-bottom: 20px;
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-
-            .edit-profile {
-                text-decoration: none;
-                color: var(--white);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                background-color: var(--black);
-                font-size: 15px;
-                border-radius: 6px;
-                transition: 0.3s all ease-in-out;
-                width: 45px;
-                height: 40px;
-
-                &:hover {
-                    background-color: #1a202c;
-                }
-
-            }
-
-        }
-
         .profile-card-body {
 
             .profile-avatar {
@@ -38,9 +11,15 @@
                 height: 250px;
                 object-fit: cover;
                 border-radius: 50%;
-
             }
 
+        }
+
+        .btn-size-theme {
+            line-height: 35px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
     }

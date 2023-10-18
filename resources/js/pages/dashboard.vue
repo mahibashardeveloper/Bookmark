@@ -1,7 +1,7 @@
 <template>
 
     <div class="container-fluid">
-        <div class="h3 text-center py-3 bg-white shadow rounded-top-4">
+        <div class="h3 text-center py-3 mb-4 bg-white shadow rounded-4">
             Dashboard
         </div>
     </div>
@@ -11,15 +11,15 @@
 
             <div class="col-lg-6 pb-5">
 
-                    <!-- card content start -->
-                    <div class="card-content shadow">
+                <!-- card content start -->
+                <div class="card-content shadow rounded-4">
 
                         <!-- card header start -->
                         <div class="card-header border-bottom between">
                             <div class="me-3 card-title">
                                 Login History
                             </div>
-                            <router-link class="btn btn-dark py-0 px-3 icon-bottom rounded-0" :to="{name: 'loginHistory'}">
+                            <router-link class="btn btn-dark py-0 px-3 icon-bottom" :to="{name: 'loginHistory'}">
                                 view more
                             </router-link>
                         </div>
@@ -61,10 +61,10 @@
                                 <!-- card topic start -->
                                 <div class="row card-topic">
                                     <div class="col-12 col-sm-6 d-none d-sm-block">
-                                        Ip Address
+                                        Login Time
                                     </div>
                                     <div class="col-12 col-sm-6 d-none d-sm-block">
-                                        Access Time
+                                        Ip Address
                                     </div>
                                 </div>
                                 <!-- card topic end -->
@@ -73,15 +73,15 @@
                                 <div class="row card-list" v-for="(each) in tableData">
                                     <div class="col-12 col-sm-6">
                                         <div class="marge-title py-3">
-                                            IP Address
-                                        </div>
-                                        {{each.ip_address}}
-                                    </div>
-                                    <div class="col-12 col-sm-6">
-                                        <div class="marge-title py-3">
                                             Access Time
                                         </div>
                                         {{each.created_at_formatted}}
+                                    </div>
+                                    <div class="col-12 col-sm-6">
+                                        <div class="marge-title py-3">
+                                            IP Address
+                                        </div>
+                                        {{each.ip_address}}
                                     </div>
                                 </div>
                                 <!-- card list end -->
@@ -91,21 +91,21 @@
                         <!-- card body end -->
 
                     </div>
-                    <!-- card content end -->
+                <!-- card content end -->
 
             </div>
 
             <div class="col-lg-6 pb-5">
 
                     <!-- card content start -->
-                    <div class="card-content shadow">
+                    <div class="card-content shadow rounded-4">
                         <div class="card-header border-bottom between">
                             <div class="me-3 col-md-6">
                                 <div class="me-3 card-title">
                                     Latest Bookmark
                                 </div>
                             </div>
-                            <router-link :to="{name: 'bookmark'}" class="btn btn-dark py-0 px-3 icon-bottom rounded-0">
+                            <router-link :to="{name: 'bookmark'}" class="btn btn-dark py-0 px-3 icon-bottom">
                                 view more
                             </router-link>
                         </div>
@@ -142,28 +142,21 @@
 
                                 <!-- card topic start -->
                                 <div class="row card-topic">
-                                    <div class="col-12 col-sm-6 d-none d-sm-block">
+                                    <div class="col-12">
                                         Name
-                                    </div>
-                                    <div class="col-12 col-sm-6 d-none d-sm-block">
-                                        Url
                                     </div>
                                 </div>
                                 <!-- card topic end -->
 
                                 <!-- card list start -->
                                 <div class="row card-list" v-for="(each) in latestBookmarkTableData">
-                                    <div class="col-12 col-sm-6 text-truncate">
-                                        <div class="marge-title py-3">
-                                            Name
-                                        </div>
-                                        {{each.bookmark_name}}
-                                    </div>
-                                    <div class="col-12 col-sm-6 text-truncate">
+                                    <div class="col-12">
                                         <div class="marge-title py-3">
                                             Url
                                         </div>
-                                        <a :href="each.bookmark_url" target="_blank" class="text-dark text-decoration-none"> {{each.bookmark_url}} </a>
+                                        <a :href="each.bookmark_url" target="_blank" class="text-dark text-decoration-none">
+                                            {{each.bookmark_name}}
+                                        </a>
                                     </div>
                                 </div>
                                 <!-- card list end -->

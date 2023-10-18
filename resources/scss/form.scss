@@ -1,45 +1,10 @@
 .authentication {
 
-    .btn-home {
-        display: inline-block;
-        padding: 5px 10px;
-        text-decoration: none;
-        color: var(--black);
-        transition: 0.3s all ease-in-out;
-        box-shadow: 0 0 8px 0 var(--grey);
-        border-radius: 6px;
-
-        &:hover {
-            background-color: var(--black);
-            color: var(--white);
-            transition: 0.3s all ease-in-out;
-        }
-
-    }
-
     .form-group {
         padding: 10px;
 
         .cursor-pointer {
             cursor: pointer;
-        }
-
-        .form-label {
-            font-weight: bold;
-        }
-
-        .form-control {
-            line-height: 35px;
-            box-shadow: 0 0 0 0;
-            border: 1px solid var(--light);
-        }
-
-        .error-text {
-            color: #ff0000;
-            font-weight: bold;
-            font-size: 12px;
-            margin-top: 10px;
-            letter-spacing: 1px;
         }
 
         .btn-size-theme {
@@ -51,4 +16,20 @@
 
     }
 
+}
+
+.form-label {
+    font-weight: bold;
+}
+
+.form-control {
+    line-height: 35px;
+    border: 1px solid var(--light);
+}
+
+.error-text {
+    font-size: 12px;
+    font-weight: bold;
+    color: var(--red);
+    margin-top: 10px;
 }
