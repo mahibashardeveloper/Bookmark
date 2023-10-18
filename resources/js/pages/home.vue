@@ -33,7 +33,7 @@
     <section class="w-100 bg-white py-5">
         <div class="container">
             <div class="text-center">
-                <div class="h1 mb-4 fw-bold">
+                <div class="h2 mb-4 fw-bold">
                     Features
                 </div>
             </div>
@@ -131,7 +131,7 @@
     <!-- platform group image start -->
     <section class="w-100 bg-white platform py-5">
         <div class="container py-5">
-            <div class="h1 fw-bold pb-5 text-center">Download the extension</div>
+            <div class="h2 fw-bold pb-5 text-center">Download the extension</div>
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 text-center">
                 <div class="p-3">
                     <div class="shadow pt-5 pb-4">
@@ -180,10 +180,98 @@
     </section>
     <!-- platform group image end -->
 
+    <section class="w-100 bg-white topic-interest">
+        <div class="container">
+
+            <!-- benefit start -->
+            <div class="mb-4 text-center h2 fw-bold">
+                How do I benefit from a bookmark manager?
+            </div>
+            <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3">
+                <div class="p-3">
+                    <div class="border p-3 bg-white rounded-4 h-100">
+                        <div class="mb-3 topic-image">
+                            <img :src="'/images/benefit-1.png'" class="img-fluid" alt="benefit">
+                        </div>
+                        <div class="h6 fw-bold mb-3 text-center">
+                            Access your links from any device.
+                        </div>
+                        Whether on your smartphone, tablet, web browser, or smart TV. As long as there is an active internet connection, you can access all of your saved links.
+                    </div>
+                </div>
+                <div class="p-3">
+                    <div class="border p-3 bg-white rounded-4 h-100">
+                        <div class="mb-3 topic-image">
+                            <img :src="'/images/benefit-2.png'" class="img-fluid" alt="benefit">
+                        </div>
+                        <div class="h6 fw-bold mb-3 text-center">
+                            Better organization of your bookmarks.
+                        </div>
+                        Your collected links can be structured much better. A good overview, different layout options, and other convenience features simplify the organization of your bookmarks.
+                    </div>
+                </div>
+                <div class="p-3">
+                    <div class="border p-3 bg-white rounded-4 h-100">
+                        <div class="mb-3 topic-image">
+                            <img :src="'/images/benefit-3.png'" class="img-fluid" alt="benefit">
+                        </div>
+                        <div class="h6 fw-bold mb-3 text-center">
+                            Never lose your bookmarks.
+                        </div>
+                        Save and organize all of your links without worrying about losing them. They are still available even if you have a new smartphone or change browsers.
+                    </div>
+                </div>
+            </div>
+            <!-- benefit end -->
+
+            <!-- important start -->
+            <div class="my-4 text-center h2 fw-bold">
+                What is important to us.
+            </div>
+            <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3">
+                <div class="p-3">
+                    <div class="border p-3 bg-white rounded-4 h-100">
+                        <div class="mb-3 topic-image">
+                            <img :src="'/images/important-1.png'" class="img-fluid" alt="benefit">
+                        </div>
+                        <div class="h6 fw-bold mb-3 text-center">
+                            Data protection.
+                        </div>
+                        We care about your privacy. We sell software, not data. Please refer to our Privacy Policy for detailed information. In short: No ads, no spam, no hidden costs.
+                    </div>
+                </div>
+                <div class="p-3">
+                    <div class="border p-3 bg-white rounded-4 h-100">
+                        <div class="mb-3 topic-image">
+                            <img :src="'/images/important-2.png'" class="img-fluid" alt="benefit">
+                        </div>
+                        <div class="h6 fw-bold mb-3 text-center">
+                            Your feedback.
+                        </div>
+                        We're constantly looking for new ways to improve the site and expand its features, so if you have a great idea for a new feature, have found a bug or have some general feedback, we'd love to hear from you!
+                    </div>
+                </div>
+                <div class="p-3">
+                    <div class="border p-3 bg-white rounded-4 h-100">
+                        <div class="mb-3 topic-image">
+                            <img :src="'/images/important-3.png'" class="img-fluid" alt="benefit">
+                        </div>
+                        <div class="h6 fw-bold mb-3 text-center">
+                            Your support.
+                        </div>
+                        Become a supporter and help to build a strong future for bookmark! With the supporter membership, you can support bookmark and get access to exclusive features. You decide how much you pay, and you are always in control!
+                    </div>
+                </div>
+            </div>
+            <!-- important start -->
+
+        </div>
+    </section>
+
     <!-- Frequently Asked Questions start -->
     <section class="w-100 bg-white py-5">
         <div class="container">
-            <div class="mb-4 text-center h1">
+            <div class="mb-4 text-center h2 fw-bold">
                 Frequently Asked Questions
             </div>
             <div class="d-flex justify-content-center">
@@ -264,7 +352,7 @@
             <div class="h4 text-center">
                 35,000+ ALREADY JOINED
             </div>
-            <div class="h1 py-5 text-center fw-bold">
+            <div class="h2 py-5 text-center fw-bold">
                 Stay up-to-date with what we’re doing
             </div>
             <div class="d-flex justify-content-center">

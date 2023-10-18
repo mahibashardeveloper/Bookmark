@@ -1,11 +1,5 @@
 <template>
 
-    <div class="container-fluid">
-        <div class="h3 text-center py-3 bg-white shadow rounded-top-4">
-            Login History
-        </div>
-    </div>
-
     <div class="pb-5">
 
         <div class="container-fluid">

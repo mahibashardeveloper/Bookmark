@@ -1,13 +1,7 @@
 <template>
 
     <div class="container-fluid">
-        <div class="h3 text-center py-3 bg-white shadow rounded-4">
-            Bookmark
-        </div>
-    </div>
-
-    <div class="container-fluid">
-        <div class="py-3 text-end">
+        <div class="pb-3 text-end">
             <a href="javascript:void(0)" class="btn btn-outline-theme rounded-4" @click="manageModal(1, null)">
                 <i class="bi bi-plus-lg me-2"></i> Add
             </a>

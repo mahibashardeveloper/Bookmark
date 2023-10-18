@@ -1,12 +1,6 @@
 <template>
 
     <div class="container-fluid">
-        <div class="h3 text-center py-3 mb-4 bg-white shadow rounded-4">
-            Dashboard
-        </div>
-    </div>
-
-    <div class="container-fluid">
         <div class="row">
 
             <div class="col-lg-6 pb-5">
