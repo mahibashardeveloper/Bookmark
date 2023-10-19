@@ -58,16 +58,16 @@
                         <a class="nav-link dropdown-toggle" href="javascript:void(0)" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             {{profile_data.full_name}}
                         </a>
-                        <ul class="dropdown-menu dropdown-menu-end">
+                        <ul class="dropdown-menu dropdown-menu-end p-2">
 
                             <li>
-                                <router-link class="dropdown-item" :to="{name: 'profile'}">
+                                <router-link class="dropdown-item" :to="{name: 'profile'}" :active-class="'active'">
                                     Profile
                                 </router-link>
                             </li>
 
                             <li>
-                                <router-link class="dropdown-item" :to="{name: 'loginHistory'}">
+                                <router-link class="dropdown-item" :to="{name: 'loginHistory'}" :active-class="'active'">
                                     login history
                                 </router-link>
                             </li>
