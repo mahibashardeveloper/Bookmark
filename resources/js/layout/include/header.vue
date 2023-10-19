@@ -60,17 +60,21 @@
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end p-2">
 
+                            <!-- profile start -->
                             <li>
                                 <router-link class="dropdown-item" :to="{name: 'profile'}" :active-class="'active'">
                                     Profile
                                 </router-link>
                             </li>
+                            <!-- profile end -->
 
+                            <!-- login history start -->
                             <li>
                                 <router-link class="dropdown-item" :to="{name: 'loginHistory'}" :active-class="'active'">
                                     login history
                                 </router-link>
                             </li>
+                            <!-- login history end -->
 
                             <!-- logout action start -->
                             <li>
@@ -96,53 +100,53 @@
 
 <script>
 
-import ApiServices from "../../services/apiServices.js";
-import ApiRoutes from "../../services/apiRoutes.js";
+    import ApiServices from "../../services/apiServices.js";
+    import ApiRoutes from "../../services/apiRoutes.js";
 
-export default {
+    export default {
 
-    data(){
+        data(){
 
-        return{
-            profile_data: null,
-            isActiveHeaderController: false,
-            core:window.core
-        }
+            return{
+                profile_data: null,
+                isActiveHeaderController: false,
+                core:window.core
+            }
 
-    },
-
-    mounted() {
-
-        if(this.core.UserInfo != null){
-            this.getProfile();
-        }
-
-    },
-
-    methods: {
-
-        getProfile() {
-            this.profileDataLoading = true;
-            ApiServices.GET(ApiRoutes.profile_details, (res) => {
-                this.profileDataLoading = false;
-                if (res.status === 200) {
-                    this.profile_data = res.data;
-                }
-            })
         },
 
-        logout() {
-            this.logoutLoading = true;
-            ApiServices.GET(ApiRoutes.profile_logout, (res) => {
-                this.logoutLoading = false;
-                if (res.status === 200) {
-                    window.location.reload();
-                }
-            })
+        mounted() {
+
+            if(this.core.UserInfo != null){
+                this.getProfile();
+            }
+
         },
+
+        methods: {
+
+            getProfile() {
+                this.profileDataLoading = true;
+                ApiServices.GET(ApiRoutes.profile_details, (res) => {
+                    this.profileDataLoading = false;
+                    if (res.status === 200) {
+                        this.profile_data = res.data;
+                    }
+                })
+            },
+
+            logout() {
+                this.logoutLoading = true;
+                ApiServices.GET(ApiRoutes.profile_logout, (res) => {
+                    this.logoutLoading = false;
+                    if (res.status === 200) {
+                        window.location.reload();
+                    }
+                })
+            },
+
+        }
 
     }
-
-}
 
 </script>
