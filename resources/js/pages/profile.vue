@@ -230,7 +230,6 @@ export default {
                     this.getProfile();
                     this.edit = false;
                     this.$toast.success('Your Profile has been updated successfully.', { position: "top-right" });
-                    this.closeEditProfileModal();
                     window.location.reload();
                 } else {
                     this.error = res.errors;
@@ -247,7 +246,7 @@ export default {
                     this.getProfile();
                     this.edit = false;
                     this.$toast.success('Your password has been updated successfully.', { position: "top-right" });
-                    this.closeEditPasswordModal();
+                    this.passwordParam = {password: '', password_confirmation: ''};
                 } else {
                     this.error = res.errors;
                 }
