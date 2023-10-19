@@ -205,10 +205,10 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" @click="manageModal(2,'')">
+                        <button type="button" class="btn btn-secondary btn-size-theme" @click="manageModal(2,'')">
                             Cancel
                         </button>
-                        <button type="submit" class="btn btn-dark">
+                        <button type="submit" class="btn btn-dark btn-size-theme">
                             <span v-if="createLoading === false">
                                 <span v-if="bookmarkParam.id === ''">
                                     Save
@@ -242,8 +242,8 @@
                     </div>
                 </div>
                 <div class="modal-footer border-top-0 d-flex justify-content-around align-items-center">
-                    <button type="button" class="col-5 btn btn-secondary" @click="deleteModal(2,'')">Cancel</button>
-                    <button type="button" class="col-5 btn btn-danger" @click="deleteBookmark">
+                    <button type="button" class="col-5 btn btn-secondary btn-size-theme" @click="deleteModal(2,'')">Cancel</button>
+                    <button type="button" class="col-5 btn btn-danger btn-size-theme" @click="deleteBookmark">
                         <span v-if="deleteLoading === false">
                             Confirm
                         </span>
@@ -373,7 +373,7 @@
                     if (data !== null) {
                         this.getSingle(data);
                     }
-                    const myModal = new bootstrap.Modal("#manageModal");
+                    const myModal = new bootstrap.Modal("#manageModal", {keyboard: false, backdrop: 'static'});
                     myModal.show();
                 } else {
                     this.selected = [];
