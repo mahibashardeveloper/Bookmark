@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class UserLogs extends Model
+class LoginTimeHistory extends Model
 {
     use HasApiTokens, HasFactory, Notifiable;
 

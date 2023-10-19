@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Services;
 
-use App\Models\UserLogs;
+use App\Models\LoginTimeHistory;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -58,7 +58,7 @@ class UserServices extends BaseController
 
                 $ipAddress = $request->ip();
 
-                $log = new UserLogs();
+                $log = new LoginTimeHistory();
                 $log->user_id = $user->id;
                 $log->ip_address = $ipAddress;
                 $log->save();
@@ -198,7 +198,7 @@ class UserServices extends BaseController
         try {
             $user_id = Auth::id();
             $limit = $request->limit ?? 10;
-            $results = UserLogs::where('user_id', $user_id)->orderBy('id', 'desc');
+            $results = LoginTimeHistory::where('user_id', $user_id)->orderBy('id', 'desc');
             $paginatedData = $results->paginate($limit);
             return ['status' => 200, 'data' => $paginatedData];
         } catch (\Exception $e) {

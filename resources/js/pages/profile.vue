@@ -62,6 +62,7 @@
 
                             <!-- upload image start -->
                             <div class="mb-3 profile-card-body d-flex justify-content-center">
+                                <img class="img-fluid profile-avatar" v-if="!editParam.avatar" :src="'https://ui-avatars.com/api/?name='+editParam.full_name" alt="profile-dummy">
                                 <img class="img-fluid profile-avatar overflow-hidden" v-if="editParam.avatar !== null" :src="editParam.avatarFilePath" alt="profile">
                             </div>
                             <div class="text-center">
